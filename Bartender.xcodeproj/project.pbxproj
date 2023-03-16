@@ -14,6 +14,9 @@
 		334D0E8B29C36CF5009F08E0 /* CocktailsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E8A29C36CF5009F08E0 /* CocktailsListView.swift */; };
 		334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */; };
 		334D0E9129C3734C009F08E0 /* CocktailDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9029C3734C009F08E0 /* CocktailDetailsView.swift */; };
+		334D0E9329C379DD009F08E0 /* CocktailsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9229C379DD009F08E0 /* CocktailsListService.swift */; };
+		334D0E9629C37A46009F08E0 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 334D0E9529C37A46009F08E0 /* Networking */; };
+		334D0E9829C385A8009F08E0 /* CocktailsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9729C385A8009F08E0 /* CocktailsListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 		334D0E8A29C36CF5009F08E0 /* CocktailsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListView.swift; sourceTree = "<group>"; };
 		334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListView.swift; sourceTree = "<group>"; };
 		334D0E9029C3734C009F08E0 /* CocktailDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailsView.swift; sourceTree = "<group>"; };
+		334D0E9229C379DD009F08E0 /* CocktailsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListService.swift; sourceTree = "<group>"; };
+		334D0E9729C385A8009F08E0 /* CocktailsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				334D0E9629C37A46009F08E0 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,7 @@
 				333A554829C36B5B00A89EF4 /* BartenderApp.swift */,
 				334D0E8E29C36DDA009F08E0 /* Assets */,
 				334D0E8929C36CE4009F08E0 /* Scenes */,
+				334D0E9929C392E4009F08E0 /* Services */,
 			);
 			path = Bartender;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 			children = (
 				334D0E9029C3734C009F08E0 /* CocktailDetailsView.swift */,
 				334D0E8A29C36CF5009F08E0 /* CocktailsListView.swift */,
+				334D0E9729C385A8009F08E0 /* CocktailsListViewModel.swift */,
 				334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */,
 				333A554A29C36B5B00A89EF4 /* RootView.swift */,
 			);
@@ -109,6 +117,14 @@
 				333A554C29C36B5C00A89EF4 /* Images.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		334D0E9929C392E4009F08E0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				334D0E9229C379DD009F08E0 /* CocktailsListService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +143,9 @@
 			dependencies = (
 			);
 			name = Bartender;
+			packageProductDependencies = (
+				334D0E9529C37A46009F08E0 /* Networking */,
+			);
 			productName = Bartender;
 			productReference = 333A554529C36B5B00A89EF4 /* Bartender.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +196,9 @@
 				Base,
 			);
 			mainGroup = 333A553C29C36B5B00A89EF4;
+			packageReferences = (
+				334D0E9429C37A46009F08E0 /* XCRemoteSwiftPackageReference "Networking" */,
+			);
 			productRefGroup = 333A554629C36B5B00A89EF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,9 +233,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
+				334D0E9329C379DD009F08E0 /* CocktailsListService.swift in Sources */,
 				334D0E8B29C36CF5009F08E0 /* CocktailsListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
 				334D0E9129C3734C009F08E0 /* CocktailDetailsView.swift in Sources */,
+				334D0E9829C385A8009F08E0 /* CocktailsListViewModel.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +504,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		334D0E9429C37A46009F08E0 /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vfeder6/Networking";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		334D0E9529C37A46009F08E0 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 334D0E9429C37A46009F08E0 /* XCRemoteSwiftPackageReference "Networking" */;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 333A553D29C36B5B00A89EF4 /* Project object */;
 }
