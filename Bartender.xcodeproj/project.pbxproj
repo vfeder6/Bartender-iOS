@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554829C36B5B00A89EF4 /* BartenderApp.swift */; };
-		333A554B29C36B5B00A89EF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* ContentView.swift */; };
-		333A554D29C36B5C00A89EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Assets.xcassets */; };
-		333A555029C36B5C00A89EF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */; };
+		333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* RootView.swift */; };
+		333A554D29C36B5C00A89EF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Images.xcassets */; };
 		333A555A29C36B5C00A89EF4 /* BartenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A555929C36B5C00A89EF4 /* BartenderTests.swift */; };
+		334D0E8B29C36CF5009F08E0 /* CocktailsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E8A29C36CF5009F08E0 /* CocktailsListView.swift */; };
+		334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,11 +28,12 @@
 /* Begin PBXFileReference section */
 		333A554529C36B5B00A89EF4 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A554829C36B5B00A89EF4 /* BartenderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderApp.swift; sourceTree = "<group>"; };
-		333A554A29C36B5B00A89EF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		333A554C29C36B5C00A89EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		333A554A29C36B5B00A89EF4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		333A554C29C36B5C00A89EF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		333A555529C36B5C00A89EF4 /* BartenderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A555929C36B5C00A89EF4 /* BartenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderTests.swift; sourceTree = "<group>"; };
+		334D0E8A29C36CF5009F08E0 /* CocktailsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListView.swift; sourceTree = "<group>"; };
+		334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,19 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				333A554829C36B5B00A89EF4 /* BartenderApp.swift */,
-				333A554A29C36B5B00A89EF4 /* ContentView.swift */,
-				333A554C29C36B5C00A89EF4 /* Assets.xcassets */,
-				333A554E29C36B5C00A89EF4 /* Preview Content */,
+				334D0E8E29C36DDA009F08E0 /* Assets */,
+				334D0E8929C36CE4009F08E0 /* Scenes */,
 			);
 			path = Bartender;
-			sourceTree = "<group>";
-		};
-		333A554E29C36B5C00A89EF4 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		333A555829C36B5C00A89EF4 /* BartenderTests */ = {
@@ -95,6 +88,24 @@
 				333A555929C36B5C00A89EF4 /* BartenderTests.swift */,
 			);
 			path = BartenderTests;
+			sourceTree = "<group>";
+		};
+		334D0E8929C36CE4009F08E0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				334D0E8A29C36CF5009F08E0 /* CocktailsListView.swift */,
+				334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */,
+				333A554A29C36B5B00A89EF4 /* RootView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		334D0E8E29C36DDA009F08E0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				333A554C29C36B5C00A89EF4 /* Images.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333A555029C36B5C00A89EF4 /* Preview Assets.xcassets in Resources */,
-				333A554D29C36B5C00A89EF4 /* Assets.xcassets in Resources */,
+				333A554D29C36B5C00A89EF4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +207,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333A554B29C36B5B00A89EF4 /* ContentView.swift in Sources */,
+				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
+				334D0E8B29C36CF5009F08E0 /* CocktailsListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
+				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +354,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Bartender/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 3RHB4UFD9V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -371,7 +383,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Bartender/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 3RHB4UFD9V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

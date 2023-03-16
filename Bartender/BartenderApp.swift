@@ -4,7 +4,7 @@ import SwiftUI
 struct BartenderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }
