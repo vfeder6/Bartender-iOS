@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554829C36B5B00A89EF4 /* BartenderApp.swift */; };
+		333A554B29C36B5B00A89EF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* ContentView.swift */; };
+		333A554D29C36B5C00A89EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Assets.xcassets */; };
+		333A555029C36B5C00A89EF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */; };
+		333A555A29C36B5C00A89EF4 /* BartenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A555929C36B5C00A89EF4 /* BartenderTests.swift */; };
+		333A556429C36B5C00A89EF4 /* BartenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A556329C36B5C00A89EF4 /* BartenderUITests.swift */; };
+		333A556629C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A556529C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		333A555629C36B5C00A89EF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 333A553D29C36B5B00A89EF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 333A554429C36B5B00A89EF4;
+			remoteInfo = Bartender;
+		};
+		333A556029C36B5C00A89EF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 333A553D29C36B5B00A89EF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 333A554429C36B5B00A89EF4;
+			remoteInfo = Bartender;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		333A554529C36B5B00A89EF4 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		333A554829C36B5B00A89EF4 /* BartenderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderApp.swift; sourceTree = "<group>"; };
+		333A554A29C36B5B00A89EF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		333A554C29C36B5C00A89EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		333A555529C36B5C00A89EF4 /* BartenderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		333A555929C36B5C00A89EF4 /* BartenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderTests.swift; sourceTree = "<group>"; };
+		333A555F29C36B5C00A89EF4 /* BartenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		333A556329C36B5C00A89EF4 /* BartenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderUITests.swift; sourceTree = "<group>"; };
+		333A556529C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		333A554229C36B5B00A89EF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A555229C36B5C00A89EF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A555C29C36B5C00A89EF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		333A553C29C36B5B00A89EF4 = {
+			isa = PBXGroup;
+			children = (
+				333A554729C36B5B00A89EF4 /* Bartender */,
+				333A555829C36B5C00A89EF4 /* BartenderTests */,
+				333A556229C36B5C00A89EF4 /* BartenderUITests */,
+				333A554629C36B5B00A89EF4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		333A554629C36B5B00A89EF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				333A554529C36B5B00A89EF4 /* Bartender.app */,
+				333A555529C36B5C00A89EF4 /* BartenderTests.xctest */,
+				333A555F29C36B5C00A89EF4 /* BartenderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		333A554729C36B5B00A89EF4 /* Bartender */ = {
+			isa = PBXGroup;
+			children = (
+				333A554829C36B5B00A89EF4 /* BartenderApp.swift */,
+				333A554A29C36B5B00A89EF4 /* ContentView.swift */,
+				333A554C29C36B5C00A89EF4 /* Assets.xcassets */,
+				333A554E29C36B5C00A89EF4 /* Preview Content */,
+			);
+			path = Bartender;
+			sourceTree = "<group>";
+		};
+		333A554E29C36B5C00A89EF4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		333A555829C36B5C00A89EF4 /* BartenderTests */ = {
+			isa = PBXGroup;
+			children = (
+				333A555929C36B5C00A89EF4 /* BartenderTests.swift */,
+			);
+			path = BartenderTests;
+			sourceTree = "<group>";
+		};
+		333A556229C36B5C00A89EF4 /* BartenderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				333A556329C36B5C00A89EF4 /* BartenderUITests.swift */,
+				333A556529C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift */,
+			);
+			path = BartenderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		333A554429C36B5B00A89EF4 /* Bartender */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333A556929C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "Bartender" */;
+			buildPhases = (
+				333A554129C36B5B00A89EF4 /* Sources */,
+				333A554229C36B5B00A89EF4 /* Frameworks */,
+				333A554329C36B5B00A89EF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bartender;
+			productName = Bartender;
+			productReference = 333A554529C36B5B00A89EF4 /* Bartender.app */;
+			productType = "com.apple.product-type.application";
+		};
+		333A555429C36B5C00A89EF4 /* BartenderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333A556C29C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "BartenderTests" */;
+			buildPhases = (
+				333A555129C36B5C00A89EF4 /* Sources */,
+				333A555229C36B5C00A89EF4 /* Frameworks */,
+				333A555329C36B5C00A89EF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				333A555729C36B5C00A89EF4 /* PBXTargetDependency */,
+			);
+			name = BartenderTests;
+			productName = BartenderTests;
+			productReference = 333A555529C36B5C00A89EF4 /* BartenderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		333A555E29C36B5C00A89EF4 /* BartenderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333A556F29C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "BartenderUITests" */;
+			buildPhases = (
+				333A555B29C36B5C00A89EF4 /* Sources */,
+				333A555C29C36B5C00A89EF4 /* Frameworks */,
+				333A555D29C36B5C00A89EF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				333A556129C36B5C00A89EF4 /* PBXTargetDependency */,
+			);
+			name = BartenderUITests;
+			productName = BartenderUITests;
+			productReference = 333A555F29C36B5C00A89EF4 /* BartenderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		333A553D29C36B5B00A89EF4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					333A554429C36B5B00A89EF4 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					333A555429C36B5C00A89EF4 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 333A554429C36B5B00A89EF4;
+					};
+					333A555E29C36B5C00A89EF4 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 333A554429C36B5B00A89EF4;
+					};
+				};
+			};
+			buildConfigurationList = 333A554029C36B5B00A89EF4 /* Build configuration list for PBXProject "Bartender" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 333A553C29C36B5B00A89EF4;
+			productRefGroup = 333A554629C36B5B00A89EF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				333A554429C36B5B00A89EF4 /* Bartender */,
+				333A555429C36B5C00A89EF4 /* BartenderTests */,
+				333A555E29C36B5C00A89EF4 /* BartenderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		333A554329C36B5B00A89EF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333A555029C36B5C00A89EF4 /* Preview Assets.xcassets in Resources */,
+				333A554D29C36B5C00A89EF4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A555329C36B5C00A89EF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A555D29C36B5C00A89EF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		333A554129C36B5B00A89EF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333A554B29C36B5B00A89EF4 /* ContentView.swift in Sources */,
+				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A555129C36B5C00A89EF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333A555A29C36B5C00A89EF4 /* BartenderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A555B29C36B5C00A89EF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333A556629C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift in Sources */,
+				333A556429C36B5C00A89EF4 /* BartenderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		333A555729C36B5C00A89EF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 333A554429C36B5B00A89EF4 /* Bartender */;
+			targetProxy = 333A555629C36B5C00A89EF4 /* PBXContainerItemProxy */;
+		};
+		333A556129C36B5C00A89EF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 333A554429C36B5B00A89EF4 /* Bartender */;
+			targetProxy = 333A556029C36B5C00A89EF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		333A556729C36B5C00A89EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		333A556829C36B5C00A89EF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		333A556A29C36B5C00A89EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bartender/Preview Content\"";
+				DEVELOPMENT_TEAM = 3RHB4UFD9V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.Bartender;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		333A556B29C36B5C00A89EF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bartender/Preview Content\"";
+				DEVELOPMENT_TEAM = 3RHB4UFD9V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.Bartender;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		333A556D29C36B5C00A89EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3RHB4UFD9V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.BartenderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bartender.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bartender";
+			};
+			name = Debug;
+		};
+		333A556E29C36B5C00A89EF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3RHB4UFD9V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.BartenderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bartender.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bartender";
+			};
+			name = Release;
+		};
+		333A557029C36B5C00A89EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3RHB4UFD9V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.BartenderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Bartender;
+			};
+			name = Debug;
+		};
+		333A557129C36B5C00A89EF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3RHB4UFD9V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.BartenderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Bartender;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		333A554029C36B5B00A89EF4 /* Build configuration list for PBXProject "Bartender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333A556729C36B5C00A89EF4 /* Debug */,
+				333A556829C36B5C00A89EF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		333A556929C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "Bartender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333A556A29C36B5C00A89EF4 /* Debug */,
+				333A556B29C36B5C00A89EF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		333A556C29C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "BartenderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333A556D29C36B5C00A89EF4 /* Debug */,
+				333A556E29C36B5C00A89EF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		333A556F29C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "BartenderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333A557029C36B5C00A89EF4 /* Debug */,
+				333A557129C36B5C00A89EF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 333A553D29C36B5B00A89EF4 /* Project object */;
+}
