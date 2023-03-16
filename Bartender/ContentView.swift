@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Bartender
-//
-//  Created by Federico Veronesi on 16/03/23.
-//
-
 import SwiftUI
 
 struct ContentView: View {

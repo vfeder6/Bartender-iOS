@@ -12,19 +12,10 @@
 		333A554D29C36B5C00A89EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Assets.xcassets */; };
 		333A555029C36B5C00A89EF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */; };
 		333A555A29C36B5C00A89EF4 /* BartenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A555929C36B5C00A89EF4 /* BartenderTests.swift */; };
-		333A556429C36B5C00A89EF4 /* BartenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A556329C36B5C00A89EF4 /* BartenderUITests.swift */; };
-		333A556629C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A556529C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		333A555629C36B5C00A89EF4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 333A553D29C36B5B00A89EF4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 333A554429C36B5B00A89EF4;
-			remoteInfo = Bartender;
-		};
-		333A556029C36B5C00A89EF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 333A553D29C36B5B00A89EF4 /* Project object */;
 			proxyType = 1;
@@ -41,9 +32,6 @@
 		333A554F29C36B5C00A89EF4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		333A555529C36B5C00A89EF4 /* BartenderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A555929C36B5C00A89EF4 /* BartenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderTests.swift; sourceTree = "<group>"; };
-		333A555F29C36B5C00A89EF4 /* BartenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		333A556329C36B5C00A89EF4 /* BartenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderUITests.swift; sourceTree = "<group>"; };
-		333A556529C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		333A555C29C36B5C00A89EF4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -76,7 +57,6 @@
 			children = (
 				333A554729C36B5B00A89EF4 /* Bartender */,
 				333A555829C36B5C00A89EF4 /* BartenderTests */,
-				333A556229C36B5C00A89EF4 /* BartenderUITests */,
 				333A554629C36B5B00A89EF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,7 +66,6 @@
 			children = (
 				333A554529C36B5B00A89EF4 /* Bartender.app */,
 				333A555529C36B5C00A89EF4 /* BartenderTests.xctest */,
-				333A555F29C36B5C00A89EF4 /* BartenderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +95,6 @@
 				333A555929C36B5C00A89EF4 /* BartenderTests.swift */,
 			);
 			path = BartenderTests;
-			sourceTree = "<group>";
-		};
-		333A556229C36B5C00A89EF4 /* BartenderUITests */ = {
-			isa = PBXGroup;
-			children = (
-				333A556329C36B5C00A89EF4 /* BartenderUITests.swift */,
-				333A556529C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift */,
-			);
-			path = BartenderUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +135,6 @@
 			productReference = 333A555529C36B5C00A89EF4 /* BartenderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		333A555E29C36B5C00A89EF4 /* BartenderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 333A556F29C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "BartenderUITests" */;
-			buildPhases = (
-				333A555B29C36B5C00A89EF4 /* Sources */,
-				333A555C29C36B5C00A89EF4 /* Frameworks */,
-				333A555D29C36B5C00A89EF4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				333A556129C36B5C00A89EF4 /* PBXTargetDependency */,
-			);
-			name = BartenderUITests;
-			productName = BartenderUITests;
-			productReference = 333A555F29C36B5C00A89EF4 /* BartenderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +149,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					333A555429C36B5C00A89EF4 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 333A554429C36B5B00A89EF4;
-					};
-					333A555E29C36B5C00A89EF4 = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 333A554429C36B5B00A89EF4;
 					};
@@ -221,7 +169,6 @@
 			targets = (
 				333A554429C36B5B00A89EF4 /* Bartender */,
 				333A555429C36B5C00A89EF4 /* BartenderTests */,
-				333A555E29C36B5C00A89EF4 /* BartenderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,13 +184,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		333A555329C36B5C00A89EF4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		333A555D29C36B5C00A89EF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,15 +210,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		333A555B29C36B5C00A89EF4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				333A556629C36B5C00A89EF4 /* BartenderUITestsLaunchTests.swift in Sources */,
-				333A556429C36B5C00A89EF4 /* BartenderUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -286,11 +217,6 @@
 			isa = PBXTargetDependency;
 			target = 333A554429C36B5B00A89EF4 /* Bartender */;
 			targetProxy = 333A555629C36B5C00A89EF4 /* PBXContainerItemProxy */;
-		};
-		333A556129C36B5C00A89EF4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 333A554429C36B5B00A89EF4 /* Bartender */;
-			targetProxy = 333A556029C36B5C00A89EF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -507,42 +433,6 @@
 			};
 			name = Release;
 		};
-		333A557029C36B5C00A89EF4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3RHB4UFD9V;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.BartenderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Bartender;
-			};
-			name = Debug;
-		};
-		333A557129C36B5C00A89EF4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3RHB4UFD9V;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vfeder.BartenderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Bartender;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,15 +459,6 @@
 			buildConfigurations = (
 				333A556D29C36B5C00A89EF4 /* Debug */,
 				333A556E29C36B5C00A89EF4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		333A556F29C36B5C00A89EF4 /* Build configuration list for PBXNativeTarget "BartenderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				333A557029C36B5C00A89EF4 /* Debug */,
-				333A557129C36B5C00A89EF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
