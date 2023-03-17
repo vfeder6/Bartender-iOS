@@ -23,12 +23,6 @@ struct DrinkDetailsService: Service {
     }
 }
 
-extension DrinkDetailsService {
-    static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(Drink.mock)))
-    }
-}
-
 extension Drink {
     static var mock: Self {
         .init(
