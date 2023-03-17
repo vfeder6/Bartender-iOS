@@ -1,16 +1,16 @@
 import Foundation
 import Networking
 
-protocol CocktailsListServiceProtocol {
+protocol DrinksListServiceProtocol {
     var networkService: NetworkService { get }
 
-    func perform() async -> [Cocktail]
+    func perform() async -> [Drink]
 }
 
-struct CocktailsListService: CocktailsListServiceProtocol {
+struct DrinksListService: DrinksListServiceProtocol {
     let networkService: NetworkService = .live
 
-    func perform() async -> [Cocktail] {
+    func perform() async -> [Drink] {
         switch await networkService.body(from: "popular.php", decodeTo: CocktailsListResponse.self) {
         case .success(let response):
             return response.drinks
@@ -21,10 +21,10 @@ struct CocktailsListService: CocktailsListServiceProtocol {
     }
 }
 
-struct CocktailsListServicePreview: CocktailsListServiceProtocol {
+struct DrinksListServicePreview: DrinksListServiceProtocol {
     let networkService: NetworkService = .mock
 
-    func perform() async -> [Cocktail] {
+    func perform() async -> [Drink] {
         [
             .init(id: "1", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
             .init(id: "2", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
@@ -65,13 +65,13 @@ extension NetworkService {
 }
 
 struct CocktailsListResponse: Decodable {
-    let drinks: [Cocktail]
+    let drinks: [Drink]
 }
 
-struct Cocktail: Decodable, Hashable, Identifiable {
+struct Drink: Decodable, Hashable, Identifiable {
     let id: String
     let name: String
-    let category: DrinkCategory
+    let category: Category
     let glass: Glass
     let isAlcoholic: Bool
     let ibaCategory: IBACategory?
@@ -80,7 +80,7 @@ struct Cocktail: Decodable, Hashable, Identifiable {
     init(
         id: String,
         name: String,
-        category: DrinkCategory,
+        category: Category,
         glass: Glass,
         isAlcoholic: Bool,
         ibaCategory: IBACategory?,
@@ -100,7 +100,7 @@ struct Cocktail: Decodable, Hashable, Identifiable {
 
         id = values.decodeDebug(String.self, forKey: .id)
         name = values.decodeDebug(String.self, forKey: .name)
-        category = values.decodeDebug(DrinkCategory.self, forKey: .category)
+        category = values.decodeDebug(Category.self, forKey: .category)
         glass = values.decodeDebug(Glass.self, forKey: .glass)
         isAlcoholic = values.decodeDebug(String.self, forKey: .isAlcoholic) == "Alcoholic"
         ibaCategory = values.decodeDebug(IBACategory.self, forKey: .ibaCategory)
@@ -123,7 +123,7 @@ struct Cocktail: Decodable, Hashable, Identifiable {
         case unknown
     }
 
-    enum DrinkCategory: String, Decodable, Unknownable {
+    enum Category: String, Decodable, Unknownable {
         case cocktail = "Cocktail"
         case ordinaryDrink = "Ordinary Drink"
         case punchPartyDrink = "Punch / Party Drink"

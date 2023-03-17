@@ -1,34 +1,34 @@
 import SwiftUI
 
-struct CocktailsListView: View {
-    @StateObject var viewModel: CocktailsListViewModel
+struct DrinksListView: View {
+    @StateObject var viewModel: DrinksListViewModel
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            ForEach(viewModel.state.cocktails) { cocktail in
-                NavigationLink(value: cocktail) {
-                    row(for: cocktail)
+            ForEach(viewModel.state.drinks) { drink in
+                NavigationLink(value: drink) {
+                    row(for: drink)
                 }.buttonStyle(.plain)
                 Divider()
             }
         }
-        .navigationStack(withTitle: "Drinks", forDestination: Cocktail.self) { cocktail in
-            CocktailDetailsView()
+        .navigationStack(withTitle: "Drinks", forDestination: Drink.self) { cocktail in
+            DrinkDetailsView()
         }
         .task {
             await viewModel.fetch()
         }
     }
 
-    private func row(for cocktail: Cocktail) -> some View {
+    private func row(for drink: Drink) -> some View {
         HStack {
             VStack {
                 HStack(spacing: 0) {
-                    Text(cocktail.name).font(.system(size: 24))
+                    Text(drink.name).font(.system(size: 24))
                     Spacer(minLength: 0)
                 }
                 HStack(spacing: 0) {
-                    Text(cocktail.category.rawValue)
+                    Text(drink.category.rawValue)
                     Spacer(minLength: 0)
                 }
             }
@@ -54,8 +54,8 @@ private extension View {
     }
 }
 
-struct CocktailsListView_Previews: PreviewProvider {
+struct DrinksListView_Previews: PreviewProvider {
     static var previews: some View {
-        CocktailsListView(viewModel: .init(cocktailsListService: CocktailsListServicePreview()))
+        DrinksListView(viewModel: .init(drinksListService: DrinksListServicePreview()))
     }
 }
