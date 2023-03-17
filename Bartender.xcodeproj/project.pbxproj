@@ -11,6 +11,8 @@
 		333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* RootView.swift */; };
 		333A554D29C36B5C00A89EF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Images.xcassets */; };
 		333A555A29C36B5C00A89EF4 /* BartenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A555929C36B5C00A89EF4 /* BartenderTests.swift */; };
+		3343D10C29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3343D10B29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift */; };
+		3343D10E29C3EF90001A5C3E /* DrinkDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3343D10D29C3EF90001A5C3E /* DrinkDetailsService.swift */; };
 		334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E8A29C36CF5009F08E0 /* DrinksListView.swift */; };
 		334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */; };
 		334D0E9129C3734C009F08E0 /* DrinkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9029C3734C009F08E0 /* DrinkDetailsView.swift */; };
@@ -36,6 +38,8 @@
 		333A554C29C36B5C00A89EF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		333A555529C36B5C00A89EF4 /* BartenderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A555929C36B5C00A89EF4 /* BartenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderTests.swift; sourceTree = "<group>"; };
+		3343D10B29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsViewModel.swift; sourceTree = "<group>"; };
+		3343D10D29C3EF90001A5C3E /* DrinkDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsService.swift; sourceTree = "<group>"; };
 		334D0E8A29C36CF5009F08E0 /* DrinksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListView.swift; sourceTree = "<group>"; };
 		334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListView.swift; sourceTree = "<group>"; };
 		334D0E9029C3734C009F08E0 /* DrinkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsView.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				334D0E9029C3734C009F08E0 /* DrinkDetailsView.swift */,
+				3343D10B29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift */,
 			);
 			path = DrinkDetails;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				334D0E9229C379DD009F08E0 /* DrinksListService.swift */,
+				3343D10D29C3EF90001A5C3E /* DrinkDetailsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,10 +254,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3343D10C29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift in Sources */,
 				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
 				334D0E9329C379DD009F08E0 /* DrinksListService.swift in Sources */,
 				334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
+				3343D10E29C3EF90001A5C3E /* DrinkDetailsService.swift in Sources */,
 				334D0E9129C3734C009F08E0 /* DrinkDetailsView.swift in Sources */,
 				334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,

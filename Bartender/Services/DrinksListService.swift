@@ -1,30 +1,30 @@
 import Foundation
 import Networking
 
-protocol DrinksListServiceProtocol {
-    var networkService: NetworkService { get }
+struct DrinksListService: Service {
+    let networkService: NetworkService
 
-    func perform() async -> [Drink]
-}
+    static var live: Self {
+        .init(networkService: .live)
+    }
 
-struct DrinksListService: DrinksListServiceProtocol {
-    let networkService: NetworkService = .live
+    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<[Drink], NetworkError> {
+        await networkService.body(from: "popular.php", decodeTo: DrinksListResponse.self).map(\.drinks)
+    }
 
-    func perform() async -> [Drink] {
-        switch await networkService.body(from: "popular.php", decodeTo: CocktailsListResponse.self) {
-        case .success(let response):
-            return response.drinks
-
-        case .failure:
-            return []
-        }
+    func perform() async -> Result<[Drink], NetworkError> {
+        await perform(body: nil, queryItems: [])
     }
 }
 
-struct DrinksListServicePreview: DrinksListServiceProtocol {
-    let networkService: NetworkService = .mock
+extension DrinksListService {
+    static var preview: Self {
+        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock)))
+    }
+}
 
-    func perform() async -> [Drink] {
+extension Array where Element == Drink {
+    static var mock: Self {
         [
             .init(id: "1", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
             .init(id: "2", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
@@ -39,6 +39,12 @@ struct DrinksListServicePreview: DrinksListServiceProtocol {
             .init(id: "11", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
             .init(id: "12", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
         ]
+    }
+}
+
+extension DrinksListResponse {
+    static var mock: Self {
+        .init(drinks: .mock)
     }
 }
 
@@ -64,11 +70,11 @@ extension NetworkService {
     }
 }
 
-struct CocktailsListResponse: Decodable {
+struct DrinksListResponse: Codable {
     let drinks: [Drink]
 }
 
-struct Drink: Decodable, Hashable, Identifiable {
+struct Drink: Codable, Hashable, Identifiable {
     let id: String
     let name: String
     let category: Category
@@ -105,6 +111,17 @@ struct Drink: Decodable, Hashable, Identifiable {
         isAlcoholic = values.decodeDebug(String.self, forKey: .isAlcoholic) == "Alcoholic"
         ibaCategory = values.decodeDebug(IBACategory.self, forKey: .ibaCategory)
         instructions = values.decodeDebug(String.self, forKey: .instructions)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(category.rawValue, forKey: .category)
+        try container.encode(glass.rawValue, forKey: .glass)
+        try container.encode(isAlcoholic ? "Alcoholic" : "Not alcoholic", forKey: .isAlcoholic)
+        try container.encode(ibaCategory?.rawValue, forKey: .ibaCategory)
+        try container.encode(instructions, forKey: .instructions)
     }
 
     enum CodingKeys: String, CodingKey {

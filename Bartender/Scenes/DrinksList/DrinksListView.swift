@@ -56,6 +56,6 @@ private extension View {
 
 struct DrinksListView_Previews: PreviewProvider {
     static var previews: some View {
-        DrinksListView(viewModel: .init(drinksListService: DrinksListServicePreview()))
+        DrinksListView(viewModel: .init(drinksListService: .preview))
     }
 }
