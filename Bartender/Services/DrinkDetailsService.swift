@@ -8,8 +8,14 @@ struct DrinkDetailsService: Service {
         .init(networkService: .live)
     }
 
-    func perform(body: (any Encodable)?, queryItems: [URLQueryItem]) async -> Result<Drink, NetworkError> {
-        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: Drink.self)
+    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<Drink, NetworkError> {
+        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: DrinksListResponse.self)
+            .flatMap { response in
+                guard let drink = response.drinks.first else {
+                    return .failure(.notDecodableData)
+                }
+                return .success(drink)
+            }
     }
 
     func perform(drinkID: String) async -> Result<Drink, NetworkError> {

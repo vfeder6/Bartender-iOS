@@ -12,8 +12,8 @@ struct DrinksListView: View {
                 Divider()
             }
         }
-        .navigationStack(withTitle: "Drinks", forDestination: Drink.self) { cocktail in
-            DrinkDetailsView()
+        .navigationStack(withTitle: "Drinks", forDestination: Drink.self) { drink in
+            DrinkDetailsView(viewModel: .init(drinkID: drink.id))
         }
         .task {
             await viewModel.fetch()

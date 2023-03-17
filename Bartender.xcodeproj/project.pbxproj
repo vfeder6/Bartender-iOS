@@ -106,8 +106,8 @@
 		3343D10929C3EBA9001A5C3E /* DrinksList */ = {
 			isa = PBXGroup;
 			children = (
-				334D0E9729C385A8009F08E0 /* DrinksListViewModel.swift */,
 				334D0E8A29C36CF5009F08E0 /* DrinksListView.swift */,
+				334D0E9729C385A8009F08E0 /* DrinksListViewModel.swift */,
 			);
 			path = DrinksList;
 			sourceTree = "<group>";
