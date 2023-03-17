@@ -5,7 +5,7 @@ struct RootView: View {
 
     var body: some View {
         TabView(selection: $tab) {
-            CocktailsListView()
+            DrinksListView(viewModel: .init())
                 .tag(Tab.cocktailsList)
                 .tabItem {
                     Text("Cocktails")

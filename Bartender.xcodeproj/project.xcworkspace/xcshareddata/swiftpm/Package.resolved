@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "networking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vfeder6/Networking",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "be59b8494d5f359432d3dd6324ad7a0872148771"
+      }
+    }
+  ],
+  "version" : 2
+}
