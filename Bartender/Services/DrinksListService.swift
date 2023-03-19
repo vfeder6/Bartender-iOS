@@ -17,12 +17,6 @@ struct DrinksListService: Service {
     }
 }
 
-extension DrinksListService {
-    static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200))
-    }
-}
-
 extension Array where Element == Drink {
     static var mock: Self {
         [

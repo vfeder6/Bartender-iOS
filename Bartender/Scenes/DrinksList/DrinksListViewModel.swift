@@ -2,7 +2,7 @@ import Networking
 import Foundation
 
 final class DrinksListViewModel: ObservableObject {
-    let drinksListService: DrinksListService
+    private let drinksListService: DrinksListService
     @Published private(set) var state: State
 
     struct State {

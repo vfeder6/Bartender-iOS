@@ -59,3 +59,9 @@ struct DrinksListView_Previews: PreviewProvider {
         DrinksListView(viewModel: .init(drinksListService: .preview))
     }
 }
+
+extension DrinksListService {
+    static var preview: Self {
+        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
+    }
+}

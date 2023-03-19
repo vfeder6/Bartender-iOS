@@ -2,7 +2,7 @@ import Foundation
 import Networking
 
 final class DrinkDetailsViewModel: ObservableObject {
-    let drinkDetailsService: DrinkDetailsService
+    private let drinkDetailsService: DrinkDetailsService
     @Published private(set) var state: State
 
     struct State {
@@ -11,7 +11,7 @@ final class DrinkDetailsViewModel: ObservableObject {
         var error: NetworkError?
     }
 
-    init(drinkDetailsService: DrinkDetailsService = .live, drinkID: String) {
+    init(drinkDetailsService: DrinkDetailsService = .preview, drinkID: String) {
         self.drinkDetailsService = drinkDetailsService
         self.state = .init(drinkID: drinkID, drink: nil, error: nil)
     }
