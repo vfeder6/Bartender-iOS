@@ -19,20 +19,7 @@ struct DrinksListService: Service {
 
 extension Array where Element == Drink {
     static var mock: Self {
-        [
-            .init(id: "1", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "2", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "3", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "4", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "5", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "6", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "7", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "8", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "9", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "10", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "11", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-            .init(id: "12", name: "Test", category: .cocktail, glass: .highballGlass, isAlcoholic: true, ibaCategory: .contemporaryClassic, instructions: "test instructions"),
-        ]
+        [.identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock]
     }
 }
 
@@ -43,6 +30,20 @@ extension DrinksListResponse {
 
     static var mockSingleValue: Self {
         .init(drinks: [.mock])
+    }
+}
+
+extension Drink {
+    static var identifiableMock: Self {
+        .init(
+            id: UUID().uuidString,
+            name: mock.name,
+            category: mock.category,
+            glass: mock.glass,
+            isAlcoholic: mock.isAlcoholic,
+            ibaCategory: mock.ibaCategory,
+            instructions: mock.instructions
+        )
     }
 }
 

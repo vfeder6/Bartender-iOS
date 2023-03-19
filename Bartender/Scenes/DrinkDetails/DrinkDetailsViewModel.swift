@@ -11,7 +11,7 @@ final class DrinkDetailsViewModel: ObservableObject {
         var error: NetworkError?
     }
 
-    init(drinkDetailsService: DrinkDetailsService = .preview, drinkID: String) {
+    init(drinkDetailsService: DrinkDetailsService = .live, drinkID: String) {
         self.drinkDetailsService = drinkDetailsService
         self.state = .init(drinkID: drinkID, drink: nil, error: nil)
     }

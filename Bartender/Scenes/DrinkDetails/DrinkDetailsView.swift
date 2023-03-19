@@ -4,19 +4,16 @@ struct DrinkDetailsView: View {
     @StateObject var viewModel: DrinkDetailsViewModel
 
     var body: some View {
-        wrapper()
-            .task {
-                await viewModel.fetch()
-            }
-    }
-
-    private func wrapper() -> some View {
-        Group {
+        VStack(alignment: .leading) {
             if let drink = viewModel.state.drink {
                 view(for: drink)
             } else {
                 ProgressView()
             }
+        }
+        .optionalNavigationTitle(viewModel.state.drink?.name)
+        .task {
+            await viewModel.fetch()
         }
     }
 
@@ -33,12 +30,23 @@ struct DrinkDetailsView: View {
 
 struct DrinkDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DrinkDetailsView(viewModel: .init(drinkDetailsService: .preview, drinkID: "11001"))
+        NavigationStack {
+            DrinkDetailsView(viewModel: .init(drinkDetailsService: .preview, drinkID: ""))
+        }
     }
 }
 
 extension DrinkDetailsService {
     static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mockSingleValue), expecting: 200, after: .seconds(0.2)))
+        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mockSingleValue), expecting: 200, after: .seconds(0.5)))
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func optionalNavigationTitle(_ title: String?) -> some View {
+        if let title {
+            self.navigationTitle(title)
+        }
     }
 }

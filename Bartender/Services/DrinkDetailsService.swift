@@ -27,12 +27,12 @@ extension Drink {
     static var mock: Self {
         .init(
             id: "1",
-            name: "Test",
+            name: "Old Fashioned",
             category: .cocktail,
-            glass: .highballGlass,
+            glass: .oldFashionedGlass,
             isAlcoholic: true,
-            ibaCategory: .contemporaryClassic,
-            instructions: "test instructions"
+            ibaCategory: .unforgettables,
+            instructions: "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved.\r\nFill the glass with ice cubes and add whiskey.\r\n\r\nGarnish with orange twist, and a cocktail cherry."
         )
     }
 }
