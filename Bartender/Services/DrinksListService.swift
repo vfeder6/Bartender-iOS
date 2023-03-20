@@ -8,16 +8,16 @@ struct DrinksListService: Service {
         .init(networkService: .live)
     }
 
-    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<[Drink], NetworkError> {
-        await networkService.body(from: "popular.php", decodeTo: DrinksListResponse.self).map(\.drinks)
+    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<[DrinkSummary], NetworkError> {
+        await networkService.body(from: "filter.php", with: queryItems, decodeTo: DrinksListResponse.self).map(\.drinkSummaries)
     }
 
-    func perform() async -> Result<[Drink], NetworkError> {
-        await perform(body: nil, queryItems: [])
+    func perform() async -> Result<[DrinkSummary], NetworkError> {
+        await perform(body: nil, queryItems: [.init(name: "a", value: "Alcoholic")])
     }
 }
 
-extension Array where Element == Drink {
+extension Array where Element == DrinkSummary {
     static var mock: Self {
         [.identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock, .identifiableMock]
     }
@@ -25,11 +25,7 @@ extension Array where Element == Drink {
 
 extension DrinksListResponse {
     static var mock: Self {
-        .init(drinks: .mock)
-    }
-
-    static var mockSingleValue: Self {
-        .init(drinks: [.mock])
+        .init(drinkSummaries: .mock)
     }
 }
 
@@ -70,7 +66,27 @@ extension NetworkService {
 }
 
 struct DrinksListResponse: Codable {
-    let drinks: [Drink]
+    let drinkSummaries: [DrinkSummary]
+
+    enum CodingKeys: String, CodingKey {
+        case drinkSummaries = "drinks"
+    }
+}
+
+struct DrinkSummary: Codable, Identifiable {
+    let id: String
+    let name: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "idDrink"
+        case name = "strDrink"
+    }
+}
+
+extension DrinkSummary {
+    static var identifiableMock: Self {
+        .init(id: UUID().uuidString, name: "Test drink")
+    }
 }
 
 struct Drink: Codable, Hashable, Identifiable {

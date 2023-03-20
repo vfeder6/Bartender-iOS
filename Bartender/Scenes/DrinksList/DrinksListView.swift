@@ -6,18 +6,20 @@ struct DrinksListView: View {
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                ForEach(viewModel.state.drinks) { drink in
-                    row(for: drink)
-                        .onTapGesture {
-                            viewModel.drinkSelected(drink)
-                        }
-                    Divider()
+                LazyVStack {
+                    ForEach(viewModel.state.drinkSummaries) { drinkSummary in
+                        row(for: drinkSummary)
+                            .onTapGesture {
+                                viewModel.drinkSelected(drinkSummary)
+                            }
+                        Divider()
+                    }
                 }
             }
             .navigationTitle("Drinks")
         }
-        .fullScreenCover(item: $viewModel.navigation.selectedDrink) { drink in
-            DrinkDetailsView(viewModel: .init(drinkID: drink.id))
+        .fullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
+            DrinkDetailsView(viewModel: .init(drinkID: drinkSummary.id))
                 .dismissable(isPresented: .optional($viewModel.navigation.selectedDrink))
         }
         .task {
@@ -25,15 +27,12 @@ struct DrinksListView: View {
         }
     }
 
-    private func row(for drink: Drink) -> some View {
-        HStack {
+    private func row(for drinkSummary: DrinkSummary) -> some View {
+        print("row", drinkSummary.id)
+        return HStack {
             VStack {
                 HStack(spacing: 0) {
-                    Text(drink.name).font(.system(size: 24))
-                    Spacer(minLength: 0)
-                }
-                HStack(spacing: 0) {
-                    Text(drink.category.rawValue)
+                    Text(drinkSummary.name).font(.system(size: 24))
                     Spacer(minLength: 0)
                 }
             }

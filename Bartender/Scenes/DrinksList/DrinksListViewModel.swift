@@ -7,32 +7,32 @@ final class DrinksListViewModel: ObservableObject {
     @Published var navigation: Navigation
 
     struct State {
-        var drinks: [Drink]
+        var drinkSummaries: [DrinkSummary]
         var error: NetworkError?
     }
 
     struct Navigation {
-        var selectedDrink: Drink?
+        var selectedDrink: DrinkSummary?
     }
 
     init(drinksListService: DrinksListService = .live) {
         self.drinksListService = drinksListService
-        self.state = .init(drinks: [], error: nil)
+        self.state = .init(drinkSummaries: [], error: nil)
         self.navigation = .init()
     }
 
     @MainActor
     func fetch() async {
         switch await drinksListService.perform() {
-        case .success(let drinks):
-            state.drinks = drinks
+        case .success(let drinkSummaries):
+            state.drinkSummaries = drinkSummaries
 
         case .failure(let error):
             state.error = error
         }
     }
 
-    func drinkSelected(_ drink: Drink) {
-        navigation.selectedDrink = drink
+    func drinkSelected(_ drinkSummary: DrinkSummary) {
+        navigation.selectedDrink = drinkSummary
     }
 }

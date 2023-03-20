@@ -100,6 +100,6 @@ struct DrinkDetailsView_Previews: PreviewProvider {
 
 extension DrinkDetailsService {
     static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mockSingleValue), expecting: 200, after: .seconds(0.5)))
+        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }

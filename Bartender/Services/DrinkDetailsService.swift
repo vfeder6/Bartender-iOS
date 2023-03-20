@@ -9,7 +9,7 @@ struct DrinkDetailsService: Service {
     }
 
     func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<Drink, NetworkError> {
-        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: DrinksListResponse.self)
+        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: DrinkDetailsResponse.self)
             .flatMap { response in
                 guard let drink = response.drinks.first else {
                     return .failure(.notDecodableData)
@@ -21,6 +21,10 @@ struct DrinkDetailsService: Service {
     func perform(drinkID: String) async -> Result<Drink, NetworkError> {
         await perform(body: nil, queryItems: [.init(name: "i", value: drinkID)])
     }
+}
+
+struct DrinkDetailsResponse: Decodable {
+    let drinks: [Drink]
 }
 
 extension Drink {
