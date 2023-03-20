@@ -71,21 +71,21 @@ struct Drink: Codable, Hashable, Identifiable {
         let measure14 = values._decodeDebug(String.self, forKey: .measure14)
         let measure15 = values._decodeDebug(String.self, forKey: .measure15)
 
-        ingredients.appendUnknownable(.init(ingredient: ingredient1, measure: measure1))
-        ingredients.appendUnknownable(.init(ingredient: ingredient2, measure: measure2))
-        ingredients.appendUnknownable(.init(ingredient: ingredient3, measure: measure3))
-        ingredients.appendUnknownable(.init(ingredient: ingredient4, measure: measure4))
-        ingredients.appendUnknownable(.init(ingredient: ingredient5, measure: measure5))
-        ingredients.appendUnknownable(.init(ingredient: ingredient6, measure: measure6))
-        ingredients.appendUnknownable(.init(ingredient: ingredient7, measure: measure7))
-        ingredients.appendUnknownable(.init(ingredient: ingredient8, measure: measure8))
-        ingredients.appendUnknownable(.init(ingredient: ingredient9, measure: measure9))
-        ingredients.appendUnknownable(.init(ingredient: ingredient10, measure: measure10))
-        ingredients.appendUnknownable(.init(ingredient: ingredient11, measure: measure11))
-        ingredients.appendUnknownable(.init(ingredient: ingredient12, measure: measure12))
-        ingredients.appendUnknownable(.init(ingredient: ingredient13, measure: measure13))
-        ingredients.appendUnknownable(.init(ingredient: ingredient14, measure: measure14))
-        ingredients.appendUnknownable(.init(ingredient: ingredient15, measure: measure15))
+        ingredients.appendUnknownable(.init(name: ingredient1, measure: measure1))
+        ingredients.appendUnknownable(.init(name: ingredient2, measure: measure2))
+        ingredients.appendUnknownable(.init(name: ingredient3, measure: measure3))
+        ingredients.appendUnknownable(.init(name: ingredient4, measure: measure4))
+        ingredients.appendUnknownable(.init(name: ingredient5, measure: measure5))
+        ingredients.appendUnknownable(.init(name: ingredient6, measure: measure6))
+        ingredients.appendUnknownable(.init(name: ingredient7, measure: measure7))
+        ingredients.appendUnknownable(.init(name: ingredient8, measure: measure8))
+        ingredients.appendUnknownable(.init(name: ingredient9, measure: measure9))
+        ingredients.appendUnknownable(.init(name: ingredient10, measure: measure10))
+        ingredients.appendUnknownable(.init(name: ingredient11, measure: measure11))
+        ingredients.appendUnknownable(.init(name: ingredient12, measure: measure12))
+        ingredients.appendUnknownable(.init(name: ingredient13, measure: measure13))
+        ingredients.appendUnknownable(.init(name: ingredient14, measure: measure14))
+        ingredients.appendUnknownable(.init(name: ingredient15, measure: measure15))
     }
 
     func encode(to encoder: Encoder) throws {
@@ -203,12 +203,16 @@ struct Drink: Codable, Hashable, Identifiable {
 }
 
 extension Drink {
-    struct Ingredient: Codable, Hashable, _Unknownable {
-        let ingredient: String
+    struct Ingredient: Codable, Hashable, Identifiable, _Unknownable {
+        let name: String
         let measure: String?
 
+        var id: String {
+            name
+        }
+
         static var _unknown: Self {
-            .init(ingredient: ._unknown, measure: ._unknown)
+            .init(name: ._unknown, measure: ._unknown)
         }
     }
 }

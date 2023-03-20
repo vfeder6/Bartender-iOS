@@ -56,6 +56,12 @@ struct DrinkDetailsView: View {
                             Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
                                 .font(.system(.headline))
                             Text("Serve in: \(drink.glass.rawValue)")
+                            Text("Ingredients".uppercased())
+                            ForEach(drink.ingredients) { ingredient in
+                                if let measure = ingredient.measure {
+                                    Text("- \(ingredient.name), \(measure)")
+                                }
+                            }
                             Text("Instructions".uppercased())
                                 .padding(.top, 20)
                             Text(drink.instructions)
