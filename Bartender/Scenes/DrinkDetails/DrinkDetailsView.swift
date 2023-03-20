@@ -17,7 +17,7 @@ struct DrinkDetailsView: View {
     private func view(for drink: Drink) -> some View {
         GeometryReader { proxy in
             ScrollView(showsIndicators: false) {
-                VStack {
+                VStack(spacing: 0) {
                     GeometryReader { proxy in
                         ZStack {
                             Image("mojito")
@@ -40,19 +40,36 @@ struct DrinkDetailsView: View {
                         .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
                     }
                     .frame(height: proxy.size.height / 3)
-                    if let ibaCategory = drink.ibaCategory {
-                        Text("IBA Category: \(ibaCategory.rawValue)")
-                    }
-                    Text(drink.alcoholLevel.rawValue)
-                    Text(drink.glass.rawValue)
-                    Text(drink.category.rawValue)
-                    Text(drink.instructions)
+                    .padding(.bottom, 16)
+                    HStack(spacing: 0) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            if let ibaCategory = drink.ibaCategory {
+                                Text(ibaCategory.rawValue.uppercased())
+                                    .foregroundColor(.red)
+                                    .font(.system(size: 16, weight: .bold))
+                                    .padding(6)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .foregroundColor(.red.opacity(0.5))
+                                    }
+                            }
+                            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
+                                .font(.system(.headline))
+                            Text("Serve in: \(drink.glass.rawValue)")
+                            Text("Instructions".uppercased())
+                                .padding(.top, 20)
+                            Text(drink.instructions)
+                        }
+                        Spacer(minLength: 0)
+                    }.padding(.horizontal)
                 }
             }
         }
         .ignoresSafeArea(edges: .top)
     }
+}
 
+extension DrinkDetailsView {
     private func scrollOffset(from proxy: GeometryProxy) -> CGFloat {
         proxy.frame(in: .global).minY
     }
@@ -68,6 +85,12 @@ struct DrinkDetailsView: View {
     }
 }
 
+extension Color {
+    static var transparent: Self {
+        .black.opacity(0)
+    }
+}
+
 struct DrinkDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         DrinkDetailsView(viewModel: .init(drinkDetailsService: .preview, drinkID: ""))
@@ -78,11 +101,5 @@ struct DrinkDetailsView_Previews: PreviewProvider {
 extension DrinkDetailsService {
     static var preview: Self {
         try! .init(networkService: .mock(returning: .success(DrinksListResponse.mockSingleValue), expecting: 200, after: .seconds(0.5)))
-    }
-}
-
-extension Color {
-    static var transparent: Self {
-        .black.opacity(0)
     }
 }
