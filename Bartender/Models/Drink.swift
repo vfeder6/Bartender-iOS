@@ -53,6 +53,9 @@ struct Drink: Codable, Hashable, Identifiable {
         case punchPartyDrink = "Punch / Party Drink"
         case shot = "Shot"
         case beer = "Beer"
+        case shake = "Shake"
+        case other = "Other / Unknown"
+        case homemadeLiqueur = "Homemade Liqueur"
         case _unknown
     }
 
@@ -63,6 +66,13 @@ struct Drink: Codable, Hashable, Identifiable {
         case copperMug = "Copper Mug"
         case whiskeyGlass = "Whiskey Glass"
         case beerGlass = "Beer Glass"
+        case beerMug = "Beer mug"
+        case whiteWineGlass = "White wine glass"
+        case shotGlass = "Shot glass"
+        case collinsGlass = "Collins glass"
+        case irishCoffeeCup = "Irish coffee cup"
+        case martiniGlass = "Martini Glass"
+        case margaritaGlass = "Margarita/Coupette glass"
         case _unknown
     }
 
