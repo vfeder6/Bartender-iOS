@@ -4,16 +4,21 @@ struct DrinksListView: View {
     @StateObject var viewModel: DrinksListViewModel
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            ForEach(viewModel.state.drinks) { drink in
-                NavigationLink(value: drink) {
+        NavigationStack {
+            ScrollView(showsIndicators: false) {
+                ForEach(viewModel.state.drinks) { drink in
                     row(for: drink)
-                }.buttonStyle(.plain)
-                Divider()
+                        .onTapGesture {
+                            viewModel.drinkSelected(drink)
+                        }
+                    Divider()
+                }
             }
+            .navigationTitle("Drinks")
         }
-        .navigationStack(withTitle: "Drinks", forDestination: Drink.self) { drink in
+        .fullScreenCover(item: $viewModel.navigation.selectedDrink) { drink in
             DrinkDetailsView(viewModel: .init(drinkID: drink.id))
+                .interactiveDismissDisabled()
         }
         .task {
             await viewModel.fetch()
@@ -37,20 +42,6 @@ struct DrinksListView: View {
         }
         .padding(.vertical, 20).padding(.horizontal)
         .contentShape(Rectangle())
-    }
-}
-
-private extension View {
-    func navigationStack<Destination, Content>(
-        withTitle title: String,
-        forDestination data: Destination.Type,
-        _ destinationContent: @escaping (Destination) -> Content
-    ) -> some View where Destination: Hashable, Content: View {
-        NavigationStack {
-            self
-                .navigationTitle(title)
-                .navigationDestination(for: data, destination: destinationContent)
-        }
     }
 }
 
