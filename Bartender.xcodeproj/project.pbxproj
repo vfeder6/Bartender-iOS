@@ -19,6 +19,12 @@
 		334D0E9629C37A46009F08E0 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 334D0E9529C37A46009F08E0 /* Networking */; };
 		334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9729C385A8009F08E0 /* DrinksListViewModel.swift */; };
 		3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356835829C8542F00C30FC7 /* DismissableView.swift */; };
+		3356835E29C89E8E00C30FC7 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356835D29C89E8E00C30FC7 /* Drink.swift */; };
+		3356836129C89EFA00C30FC7 /* _Unknownable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836029C89EFA00C30FC7 /* _Unknownable.swift */; };
+		3356836329C89F2800C30FC7 /* NetworkService+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836229C89F2800C30FC7 /* NetworkService+Constants.swift */; };
+		3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836429C89F6700C30FC7 /* DrinkSummary.swift */; };
+		3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836629C89FB900C30FC7 /* Drink+Mocks.swift */; };
+		3356836929C89FDC00C30FC7 /* DrinkSummary+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836829C89FDC00C30FC7 /* DrinkSummary+Mocks.swift */; };
 		3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +52,12 @@
 		334D0E9229C379DD009F08E0 /* DrinksListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListService.swift; sourceTree = "<group>"; };
 		334D0E9729C385A8009F08E0 /* DrinksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListViewModel.swift; sourceTree = "<group>"; };
 		3356835829C8542F00C30FC7 /* DismissableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableView.swift; sourceTree = "<group>"; };
+		3356835D29C89E8E00C30FC7 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		3356836029C89EFA00C30FC7 /* _Unknownable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Unknownable.swift; sourceTree = "<group>"; };
+		3356836229C89F2800C30FC7 /* NetworkService+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Constants.swift"; sourceTree = "<group>"; };
+		3356836429C89F6700C30FC7 /* DrinkSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSummary.swift; sourceTree = "<group>"; };
+		3356836629C89FB900C30FC7 /* Drink+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+Mocks.swift"; sourceTree = "<group>"; };
+		3356836829C89FDC00C30FC7 /* DrinkSummary+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrinkSummary+Mocks.swift"; sourceTree = "<group>"; };
 		3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +104,9 @@
 				333A554829C36B5B00A89EF4 /* BartenderApp.swift */,
 				334D0E8E29C36DDA009F08E0 /* Assets */,
 				3356835729C8541D00C30FC7 /* Components */,
+				3356835F29C89EE100C30FC7 /* Debugging Tools */,
+				3356835A29C89E3800C30FC7 /* Models */,
+				3356835B29C89E4000C30FC7 /* Networking */,
 				334D0E8929C36CE4009F08E0 /* Scenes */,
 				334D0E9929C392E4009F08E0 /* Services */,
 			);
@@ -158,6 +173,41 @@
 				3356835829C8542F00C30FC7 /* DismissableView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3356835A29C89E3800C30FC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3356835D29C89E8E00C30FC7 /* Drink.swift */,
+				3356836429C89F6700C30FC7 /* DrinkSummary.swift */,
+				3356835C29C89E6300C30FC7 /* Mocks */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3356835B29C89E4000C30FC7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3356836229C89F2800C30FC7 /* NetworkService+Constants.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3356835C29C89E6300C30FC7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3356836629C89FB900C30FC7 /* Drink+Mocks.swift */,
+				3356836829C89FDC00C30FC7 /* DrinkSummary+Mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3356835F29C89EE100C30FC7 /* Debugging Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3356836029C89EFA00C30FC7 /* _Unknownable.swift */,
+			);
+			path = "Debugging Tools";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,14 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3356836129C89EFA00C30FC7 /* _Unknownable.swift in Sources */,
+				3356836929C89FDC00C30FC7 /* DrinkSummary+Mocks.swift in Sources */,
 				3343D10C29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift in Sources */,
 				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
+				3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */,
 				334D0E9329C379DD009F08E0 /* DrinksListService.swift in Sources */,
+				3356835E29C89E8E00C30FC7 /* Drink.swift in Sources */,
 				334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
 				3343D10E29C3EF90001A5C3E /* DrinkDetailsService.swift in Sources */,
+				3356836329C89F2800C30FC7 /* NetworkService+Constants.swift in Sources */,
 				3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */,
 				334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */,
+				3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */,
 				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,
 			);
