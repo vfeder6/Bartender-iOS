@@ -18,7 +18,7 @@ struct DrinksListView: View {
         }
         .fullScreenCover(item: $viewModel.navigation.selectedDrink) { drink in
             DrinkDetailsView(viewModel: .init(drinkID: drink.id))
-                .interactiveDismissDisabled()
+                .dismissable(isPresented: .optional($viewModel.navigation.selectedDrink))
         }
         .task {
             await viewModel.fetch()
@@ -54,5 +54,11 @@ struct DrinksListView_Previews: PreviewProvider {
 extension DrinksListService {
     static var preview: Self {
         try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
+    }
+}
+
+extension Binding where Value == Bool {
+    static func optional<T: Identifiable>(_ item: Binding<T?>) -> Self {
+        .init(get: { item.wrappedValue != nil }, set: { if !$0 { item.wrappedValue = nil } })
     }
 }

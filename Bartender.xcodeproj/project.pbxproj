@@ -18,6 +18,7 @@
 		334D0E9329C379DD009F08E0 /* DrinksListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9229C379DD009F08E0 /* DrinksListService.swift */; };
 		334D0E9629C37A46009F08E0 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 334D0E9529C37A46009F08E0 /* Networking */; };
 		334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D0E9729C385A8009F08E0 /* DrinksListViewModel.swift */; };
+		3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356835829C8542F00C30FC7 /* DismissableView.swift */; };
 		3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		334D0E8C29C36D41009F08E0 /* IngredientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListView.swift; sourceTree = "<group>"; };
 		334D0E9229C379DD009F08E0 /* DrinksListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListService.swift; sourceTree = "<group>"; };
 		334D0E9729C385A8009F08E0 /* DrinksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListViewModel.swift; sourceTree = "<group>"; };
+		3356835829C8542F00C30FC7 /* DismissableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableView.swift; sourceTree = "<group>"; };
 		3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			children = (
 				333A554829C36B5B00A89EF4 /* BartenderApp.swift */,
 				334D0E8E29C36DDA009F08E0 /* Assets */,
+				3356835729C8541D00C30FC7 /* Components */,
 				334D0E8929C36CE4009F08E0 /* Scenes */,
 				334D0E9929C392E4009F08E0 /* Services */,
 			);
@@ -147,6 +150,14 @@
 				3343D10D29C3EF90001A5C3E /* DrinkDetailsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3356835729C8541D00C30FC7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3356835829C8542F00C30FC7 /* DismissableView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 				3343D10E29C3EF90001A5C3E /* DrinkDetailsService.swift in Sources */,
 				3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */,
 				334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */,
+				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

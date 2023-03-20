@@ -71,6 +71,7 @@ struct DrinkDetailsView: View {
 struct DrinkDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         DrinkDetailsView(viewModel: .init(drinkDetailsService: .preview, drinkID: ""))
+            .dismissable(isPresented: .constant(true))
     }
 }
 
