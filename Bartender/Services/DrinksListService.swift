@@ -40,7 +40,7 @@ extension Drink {
             name: mock.name,
             category: mock.category,
             glass: mock.glass,
-            isAlcoholic: mock.isAlcoholic,
+            alcoholLevel: mock.alcoholLevel,
             ibaCategory: mock.ibaCategory,
             instructions: mock.instructions
         )
@@ -78,7 +78,7 @@ struct Drink: Codable, Hashable, Identifiable {
     let name: String
     let category: Category
     let glass: Glass
-    let isAlcoholic: Bool
+    let alcoholLevel: AlcoholLevel
     let ibaCategory: IBACategory?
     let instructions: String
 
@@ -87,7 +87,7 @@ struct Drink: Codable, Hashable, Identifiable {
         name: String,
         category: Category,
         glass: Glass,
-        isAlcoholic: Bool,
+        alcoholLevel: AlcoholLevel,
         ibaCategory: IBACategory?,
         instructions: String
     ) {
@@ -95,7 +95,7 @@ struct Drink: Codable, Hashable, Identifiable {
         self.name = name
         self.category = category
         self.glass = glass
-        self.isAlcoholic = isAlcoholic
+        self.alcoholLevel = alcoholLevel
         self.ibaCategory = ibaCategory
         self.instructions = instructions
     }
@@ -103,24 +103,13 @@ struct Drink: Codable, Hashable, Identifiable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        id = values.decodeDebug(String.self, forKey: .id)
-        name = values.decodeDebug(String.self, forKey: .name)
-        category = values.decodeDebug(Category.self, forKey: .category)
-        glass = values.decodeDebug(Glass.self, forKey: .glass)
-        isAlcoholic = values.decodeDebug(String.self, forKey: .isAlcoholic) == "Alcoholic"
-        ibaCategory = values.decodeDebug(IBACategory.self, forKey: .ibaCategory)
-        instructions = values.decodeDebug(String.self, forKey: .instructions)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(category.rawValue, forKey: .category)
-        try container.encode(glass.rawValue, forKey: .glass)
-        try container.encode(isAlcoholic ? "Alcoholic" : "Not alcoholic", forKey: .isAlcoholic)
-        try container.encode(ibaCategory?.rawValue, forKey: .ibaCategory)
-        try container.encode(instructions, forKey: .instructions)
+        id = values._decodeDebug(String.self, forKey: .id)
+        name = values._decodeDebug(String.self, forKey: .name)
+        category = values._decodeDebug(Category.self, forKey: .category)
+        glass = values._decodeDebug(Glass.self, forKey: .glass)
+        alcoholLevel = values._decodeDebug(AlcoholLevel.self, forKey: .alcoholLevel)
+        ibaCategory = values._decodeDebug(IBACategory.self, forKey: .ibaCategory)
+        instructions = values._decodeDebug(String.self, forKey: .instructions)
     }
 
     enum CodingKeys: String, CodingKey {
@@ -128,36 +117,42 @@ struct Drink: Codable, Hashable, Identifiable {
         case name = "strDrink"
         case category = "strCategory"
         case glass = "strGlass"
-        case isAlcoholic = "strAlcoholic"
+        case alcoholLevel = "strAlcoholic"
         case ibaCategory = "strIBA"
         case instructions = "strInstructions"
     }
 
-    enum IBACategory: String, Decodable, Unknownable {
-        case contemporaryClassic = "Contemporary Classics"
-        case unforgettables = "Unforgettables"
-        case unknown
-    }
-
-    enum Category: String, Decodable, Unknownable {
+    enum Category: String, Codable, _Unknownable {
         case cocktail = "Cocktail"
         case ordinaryDrink = "Ordinary Drink"
         case punchPartyDrink = "Punch / Party Drink"
-        case unknown
+        case _unknown
     }
 
-    enum Glass: String, Decodable, Unknownable {
+    enum Glass: String, Codable, _Unknownable {
         case highballGlass = "Highball glass"
         case oldFashionedGlass = "Old-fashioned glass"
         case cocktailGlass = "Cocktail glass"
         case copperMug = "Copper Mug"
         case whiskeyGlass = "Whiskey Glass"
-        case unknown
+        case _unknown
+    }
+
+    enum AlcoholLevel: String, Codable, _Unknownable {
+        case alcoholic = "Alcoholic"
+        case notAlcoholic = "Not alcoholic"
+        case _unknown
+    }
+
+    enum IBACategory: String, Codable, _Unknownable {
+        case contemporaryClassic = "Contemporary Classics"
+        case unforgettables = "Unforgettables"
+        case _unknown
     }
 }
 
 extension KeyedDecodingContainer {
-    func decodeDebug<T>(_ type: T.Type, forKey key: Self.Key) -> T where T: Decodable & Unknownable {
+    func _decodeDebug<T>(_ type: T.Type, forKey key: Self.Key) -> T where T: Decodable & _Unknownable {
         do {
             return try decode(type, forKey: key)
         } catch {
@@ -166,17 +161,17 @@ extension KeyedDecodingContainer {
             } else {
                 print("DECODING: UNKNOWN", error)
             }
-            return .unknown
+            return ._unknown
         }
     }
 }
 
-protocol Unknownable {
-    static var unknown: Self { get }
+protocol _Unknownable {
+    static var _unknown: Self { get }
 }
 
-extension String: Unknownable {
-    static var unknown: String {
+extension String: _Unknownable {
+    static var _unknown: String {
         "Unknown"
     }
 }

@@ -7,23 +7,42 @@ struct DrinkDetailsView: View {
         VStack(alignment: .leading) {
             if let drink = viewModel.state.drink {
                 view(for: drink)
-            } else {
-                ProgressView()
             }
         }
-        .optionalNavigationTitle(viewModel.state.drink?.name)
         .task {
             await viewModel.fetch()
         }
     }
 
     private func view(for drink: Drink) -> some View {
-        ScrollView(showsIndicators: false) {
-            HStack(spacing: 0) {
-                Text(drink.name)
-                Spacer(minLength: 0)
-            }
-            Text(drink.instructions)
+        GeometryReader { proxy in
+            ScrollView(showsIndicators: false) {
+                ZStack {
+                    Image("mojito")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: proxy.size.width, height: proxy.size.height / 2)
+                        .foregroundColor(.gray)
+                    LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Text(drink.name)
+                                .font(.system(size: 32, weight: .bold))
+                                .foregroundColor(.white)
+                                .padding(.bottom).padding(.leading)
+                            Spacer()
+                        }
+                    }
+                }
+                if let ibaCategory = drink.ibaCategory {
+                    Text("IBA Category: \(ibaCategory.rawValue)")
+                }
+                Text(drink.alcoholLevel.rawValue)
+                Text(drink.glass.rawValue)
+                Text(drink.category.rawValue)
+                Text(drink.instructions)
+            }.ignoresSafeArea(edges: .top)
         }
     }
 }
@@ -42,11 +61,8 @@ extension DrinkDetailsService {
     }
 }
 
-extension View {
-    @ViewBuilder
-    func optionalNavigationTitle(_ title: String?) -> some View {
-        if let title {
-            self.navigationTitle(title)
-        }
+extension Color {
+    static var transparent: Self {
+        .black.opacity(0)
     }
 }
