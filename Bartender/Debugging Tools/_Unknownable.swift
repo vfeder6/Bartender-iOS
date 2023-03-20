@@ -13,12 +13,20 @@ extension KeyedDecodingContainer {
     }
 }
 
-protocol _Unknownable {
+protocol _Unknownable: Equatable {
     static var _unknown: Self { get }
 }
 
 extension String: _Unknownable {
     static var _unknown: String {
         "Unknown"
+    }
+}
+
+extension Array where Element: _Unknownable {
+    mutating func appendUnknownable(_ element: Element) {
+        if element != ._unknown {
+            append(element)
+        }
     }
 }

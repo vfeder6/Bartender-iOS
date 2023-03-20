@@ -9,7 +9,8 @@ extension Drink {
             glass: mock.glass,
             alcoholLevel: mock.alcoholLevel,
             ibaCategory: mock.ibaCategory,
-            instructions: mock.instructions
+            instructions: mock.instructions,
+            ingredients: [.init(ingredient: "Mint", measure: "2 leaves")]
         )
     }
 }
