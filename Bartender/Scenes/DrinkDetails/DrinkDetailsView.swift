@@ -6,7 +6,12 @@ struct DrinkDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let drink = viewModel.state.drink {
-                view(for: drink)
+                HeaderScrollView(title: drink.name, imageReference: "mojito") {
+                    content(drink)
+                        .horizontalAlignment(.leading)
+                        .padding(.top, 16)
+                        .padding(.horizontal)
+                }
             }
         }
         .task {
@@ -14,37 +19,38 @@ struct DrinkDetailsView: View {
         }
     }
 
-    private func view(for drink: Drink) -> some View {
-        HeaderScrollView(title: drink.name, imageReference: "mojito") {
-            content(drink)
-                .padding(.top, 16)
+    private func content(_ drink: Drink) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
+                .font(.lato(.black, 20))
+            if let ibaCategory = drink.ibaCategory {
+                ColoredLabel(title: ibaCategory.rawValue.uppercased(), color: .red)
+            }
+            ColoredLabel(title: drink.glass.rawValue.uppercased(), color: .blue, font: .lato(.black, 14))
+            Divider().padding(.vertical, 8)
+            ingredients(drink)
+            Divider().padding(.vertical, 8)
+            instructions(drink)
         }
     }
 
-    private func content(_ drink: Drink) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            if let ibaCategory = drink.ibaCategory {
-                Text(ibaCategory.rawValue.uppercased())
-                    .foregroundColor(.red)
-                    .font(.system(size: 16, weight: .bold))
-                    .padding(6)
-                    .background {
-                        RoundedRectangle(cornerRadius: 4)
-                            .foregroundColor(.red.opacity(0.5))
-                    }
-            }
-            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
-                .font(.system(.headline))
-            Text("Serve in: \(drink.glass.rawValue)")
-            Text("Ingredients".uppercased())
-                .padding(.top, 20)
-            ForEach(drink.ingredients) { ingredient in
-                Text(" - \(ingredient.description)")
-            }
-            Text("Instructions".uppercased())
-                .padding(.top, 20)
-            Text(drink.instructions)
+    @ViewBuilder
+    private func ingredients(_ drink: Drink) -> some View {
+        Text("Ingredients")
+            .font(.lato(.black, 24))
+        ForEach(drink.ingredients) { ingredient in
+            Text(" •  \(ingredient.description)")
+                .font(.lato(.italic, 18))
         }
+    }
+
+    @ViewBuilder
+    private func instructions(_ drink: Drink) -> some View {
+        Text("Instructions")
+            .font(.lato(.black, 24))
+        Text(drink.instructions)
+            .lineSpacing(4)
+            .font(.lato(.regular, 18))
     }
 }
 
