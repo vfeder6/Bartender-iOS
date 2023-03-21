@@ -15,39 +15,10 @@ struct DrinkDetailsView: View {
     }
 
     private func view(for drink: Drink) -> some View {
-        GeometryReader { proxy in
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    header(height: proxy.size.height, text: drink.name)
-                    content(drink)
-                        .horizontalAlignment(.leading)
-                        .padding(.horizontal)
-                }
-            }
+        HeaderScrollView(title: drink.name, imageReference: "mojito") {
+            content(drink)
+                .padding(.top, 16)
         }
-        .ignoresSafeArea(edges: .top)
-    }
-
-    private func header(height: CGFloat, text: String) -> some View {
-        GeometryReader { proxy in
-            ZStack {
-                Image("mojito")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: headerHeight(from: proxy))
-                    .clipped()
-                LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
-                Text(text)
-                    .horizontalAlignment(.leading)
-                    .verticalAlignment(.bottom)
-                    .font(.lato(.black, 32))
-                    .foregroundColor(.white)
-                    .padding(.bottom).padding(.leading)
-            }
-            .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
-        }
-        .frame(height: height / 3)
-        .padding(.bottom, 16)
     }
 
     private func content(_ drink: Drink) -> some View {
@@ -74,22 +45,6 @@ struct DrinkDetailsView: View {
                 .padding(.top, 20)
             Text(drink.instructions)
         }
-    }
-}
-
-extension DrinkDetailsView {
-    private func scrollOffset(from proxy: GeometryProxy) -> CGFloat {
-        proxy.frame(in: .global).minY
-    }
-
-    private func topBlockingScrollOffset(from proxy: GeometryProxy) -> CGFloat {
-        let offset = scrollOffset(from: proxy)
-        return offset > 0 ? -offset : 0
-    }
-
-    private func headerHeight(from proxy: GeometryProxy) -> CGFloat {
-        let offset = scrollOffset(from: proxy)
-        return offset > 0 ? proxy.size.height + offset : proxy.size.height
     }
 }
 

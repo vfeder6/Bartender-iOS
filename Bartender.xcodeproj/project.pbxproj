@@ -15,6 +15,7 @@
 		3303A3E329C9CC9E00FD37C7 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3303A3DD29C9CC9E00FD37C7 /* Lato-LightItalic.ttf */; };
 		3303A3E529C9CD8000FD37C7 /* Font+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303A3E429C9CD8000FD37C7 /* Font+CustomFonts.swift */; };
 		3303A3E829C9D00900FD37C7 /* Aligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303A3E729C9D00900FD37C7 /* Aligned.swift */; };
+		3323B34D29C9FD61007E760E /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3323B34C29C9FD61007E760E /* HeaderScrollView.swift */; };
 		333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554829C36B5B00A89EF4 /* BartenderApp.swift */; };
 		333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* RootView.swift */; };
 		333A554D29C36B5C00A89EF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Images.xcassets */; };
@@ -56,6 +57,7 @@
 		3303A3DD29C9CC9E00FD37C7 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		3303A3E429C9CD8000FD37C7 /* Font+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+CustomFonts.swift"; sourceTree = "<group>"; };
 		3303A3E729C9D00900FD37C7 /* Aligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aligned.swift; sourceTree = "<group>"; };
+		3323B34C29C9FD61007E760E /* HeaderScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollView.swift; sourceTree = "<group>"; };
 		333A554529C36B5B00A89EF4 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A554829C36B5B00A89EF4 /* BartenderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderApp.swift; sourceTree = "<group>"; };
 		333A554A29C36B5B00A89EF4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				3356835829C8542F00C30FC7 /* DismissableView.swift */,
+				3323B34C29C9FD61007E760E /* HeaderScrollView.swift */,
 				3303A3E629C9CFEC00FD37C7 /* View Modifiers */,
 			);
 			path = Components;
@@ -370,6 +373,7 @@
 				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
 				3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */,
 				334D0E9329C379DD009F08E0 /* DrinksListService.swift in Sources */,
+				3323B34D29C9FD61007E760E /* HeaderScrollView.swift in Sources */,
 				3356835E29C89E8E00C30FC7 /* Drink.swift in Sources */,
 				334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
