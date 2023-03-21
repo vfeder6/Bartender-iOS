@@ -6,7 +6,7 @@ extension Drink {
             id: "1",
             name: "Old Fashioned",
             category: .cocktail,
-            glass: .oldFashionedGlass,
+            glass: .oldFashioned,
             alcoholLevel: .alcoholic,
             ibaCategory: .unforgettables,
             instructions: "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved.\r\nFill the glass with ice cubes and add whiskey.\r\n\r\nGarnish with orange twist, and a cocktail cherry.",
