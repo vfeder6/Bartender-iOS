@@ -18,9 +18,8 @@ struct DrinksListView: View {
             }
             .navigationTitle("Drinks")
         }
-        .fullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
+        .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
             DrinkDetailsView(viewModel: .init(drinkID: drinkSummary.id))
-                .dismissable(isPresented: .optional($viewModel.navigation.selectedDrink))
         }
         .task {
             await viewModel.fetch()
