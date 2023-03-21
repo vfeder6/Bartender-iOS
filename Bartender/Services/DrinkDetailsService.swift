@@ -12,7 +12,7 @@ struct DrinkDetailsService: Service {
         await networkService.body(from: "lookup.php", with: queryItems, decodeTo: DrinkDetailsResponse.self)
             .flatMap { response in
                 guard let drink = response.drinks.first else {
-                    return .failure(.notDecodableData)
+                    return .failure(.notDecodableData(model: type(of: response), json: nil))
                 }
                 return .success(drink)
             }
