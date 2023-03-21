@@ -19,10 +19,9 @@ struct DrinkDetailsView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
                     header(height: proxy.size.height, text: drink.name)
-                    HStack(spacing: 0) {
-                        content(drink)
-                        Spacer(minLength: 0)
-                    }.padding(.horizontal)
+                    content(drink)
+                        .horizontalAlignment(.leading)
+                        .padding(.horizontal)
                 }
             }
         }
@@ -30,29 +29,25 @@ struct DrinkDetailsView: View {
     }
 
     private func header(height: CGFloat, text: String) -> some View {
-            GeometryReader { proxy in
-                ZStack {
-                    Image("mojito")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: headerHeight(from: proxy))
-                        .clipped()
-                    LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
-                    VStack(spacing: 0) {
-                        Spacer(minLength: 0)
-                        HStack(spacing: 0) {
-                            Text(text)
-                                .font(.lato(.black, 32))
-                                .foregroundColor(.white)
-                                .padding(.bottom).padding(.leading)
-                            Spacer(minLength: 0)
-                        }
-                    }
-                }
-                .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
+        GeometryReader { proxy in
+            ZStack {
+                Image("mojito")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: headerHeight(from: proxy))
+                    .clipped()
+                LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
+                Text(text)
+                    .horizontalAlignment(.leading)
+                    .verticalAlignment(.bottom)
+                    .font(.lato(.black, 32))
+                    .foregroundColor(.white)
+                    .padding(.bottom).padding(.leading)
             }
-            .frame(height: height / 3)
-            .padding(.bottom, 16)
+            .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
+        }
+        .frame(height: height / 3)
+        .padding(.bottom, 16)
     }
 
     private func content(_ drink: Drink) -> some View {
