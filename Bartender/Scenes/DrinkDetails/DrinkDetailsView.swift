@@ -18,59 +18,67 @@ struct DrinkDetailsView: View {
         GeometryReader { proxy in
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
-                    GeometryReader { proxy in
-                        ZStack {
-                            Image("mojito")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: headerHeight(from: proxy))
-                                .clipped()
-                            LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    Text(drink.name)
-                                        .font(.system(size: 32, weight: .bold))
-                                        .foregroundColor(.white)
-                                        .padding(.bottom).padding(.leading)
-                                    Spacer()
-                                }
-                            }
-                        }
-                        .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
-                    }
-                    .frame(height: proxy.size.height / 3)
-                    .padding(.bottom, 16)
+                    header(height: proxy.size.height, text: drink.name)
                     HStack(spacing: 0) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            if let ibaCategory = drink.ibaCategory {
-                                Text(ibaCategory.rawValue.uppercased())
-                                    .foregroundColor(.red)
-                                    .font(.system(size: 16, weight: .bold))
-                                    .padding(6)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 4)
-                                            .foregroundColor(.red.opacity(0.5))
-                                    }
-                            }
-                            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
-                                .font(.system(.headline))
-                            Text("Serve in: \(drink.glass.rawValue)")
-                            Text("Ingredients".uppercased())
-                                .padding(.top, 20)
-                            ForEach(drink.ingredients) { ingredient in
-                                Text(" - \(ingredient.description)")
-                            }
-                            Text("Instructions".uppercased())
-                                .padding(.top, 20)
-                            Text(drink.instructions)
-                        }
+                        content(drink)
                         Spacer(minLength: 0)
                     }.padding(.horizontal)
                 }
             }
         }
         .ignoresSafeArea(edges: .top)
+    }
+
+    private func header(height: CGFloat, text: String) -> some View {
+            GeometryReader { proxy in
+                ZStack {
+                    Image("mojito")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: headerHeight(from: proxy))
+                        .clipped()
+                    LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
+                    VStack(spacing: 0) {
+                        Spacer(minLength: 0)
+                        HStack(spacing: 0) {
+                            Text(text)
+                                .font(.lato(.black, 32))
+                                .foregroundColor(.white)
+                                .padding(.bottom).padding(.leading)
+                            Spacer(minLength: 0)
+                        }
+                    }
+                }
+                .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
+            }
+            .frame(height: height / 3)
+            .padding(.bottom, 16)
+    }
+
+    private func content(_ drink: Drink) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            if let ibaCategory = drink.ibaCategory {
+                Text(ibaCategory.rawValue.uppercased())
+                    .foregroundColor(.red)
+                    .font(.system(size: 16, weight: .bold))
+                    .padding(6)
+                    .background {
+                        RoundedRectangle(cornerRadius: 4)
+                            .foregroundColor(.red.opacity(0.5))
+                    }
+            }
+            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
+                .font(.system(.headline))
+            Text("Serve in: \(drink.glass.rawValue)")
+            Text("Ingredients".uppercased())
+                .padding(.top, 20)
+            ForEach(drink.ingredients) { ingredient in
+                Text(" - \(ingredient.description)")
+            }
+            Text("Instructions".uppercased())
+                .padding(.top, 20)
+            Text(drink.instructions)
+        }
     }
 }
 

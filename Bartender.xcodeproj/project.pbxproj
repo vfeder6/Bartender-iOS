@@ -13,6 +13,7 @@
 		3303A3E129C9CC9E00FD37C7 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3303A3DB29C9CC9E00FD37C7 /* Lato-Regular.ttf */; };
 		3303A3E229C9CC9E00FD37C7 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3303A3DC29C9CC9E00FD37C7 /* Lato-Italic.ttf */; };
 		3303A3E329C9CC9E00FD37C7 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3303A3DD29C9CC9E00FD37C7 /* Lato-LightItalic.ttf */; };
+		3303A3E529C9CD8000FD37C7 /* Font+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303A3E429C9CD8000FD37C7 /* Font+CustomFonts.swift */; };
 		333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554829C36B5B00A89EF4 /* BartenderApp.swift */; };
 		333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* RootView.swift */; };
 		333A554D29C36B5C00A89EF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Images.xcassets */; };
@@ -52,6 +53,7 @@
 		3303A3DB29C9CC9E00FD37C7 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		3303A3DC29C9CC9E00FD37C7 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		3303A3DD29C9CC9E00FD37C7 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		3303A3E429C9CD8000FD37C7 /* Font+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+CustomFonts.swift"; sourceTree = "<group>"; };
 		333A554529C36B5B00A89EF4 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A554829C36B5B00A89EF4 /* BartenderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderApp.swift; sourceTree = "<group>"; };
 		333A554A29C36B5B00A89EF4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				3303A3D929C9CC9E00FD37C7 /* Lato-Light.ttf */,
 				3303A3DD29C9CC9E00FD37C7 /* Lato-LightItalic.ttf */,
 				3303A3DB29C9CC9E00FD37C7 /* Lato-Regular.ttf */,
+				3303A3E429C9CD8000FD37C7 /* Font+CustomFonts.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				3343D10E29C3EF90001A5C3E /* DrinkDetailsService.swift in Sources */,
 				3356836329C89F2800C30FC7 /* NetworkService+Constants.swift in Sources */,
 				3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */,
+				3303A3E529C9CD8000FD37C7 /* Font+CustomFonts.swift in Sources */,
 				334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */,
 				3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */,
 				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,
