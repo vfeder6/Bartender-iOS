@@ -42,3 +42,21 @@ extension View {
         }
     }
 }
+
+extension View {
+    func dismissableFullScreenCover<T: Identifiable>(
+        item: Binding<T?>,
+        onDismiss: (() -> Void)? = nil,
+        content: @escaping (T) -> some View
+    ) -> some View {
+        self.fullScreenCover(item: item, onDismiss: onDismiss) { identifiable in
+            content(identifiable).dismissable(isPresented: .optional(item))
+        }
+    }
+}
+
+extension Binding where Value == Bool {
+    static func optional<T: Identifiable>(_ item: Binding<T?>) -> Self {
+        .init(get: { item.wrappedValue != nil }, set: { if !$0 { item.wrappedValue = nil } })
+    }
+}

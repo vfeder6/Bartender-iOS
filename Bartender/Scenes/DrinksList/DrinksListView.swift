@@ -28,8 +28,7 @@ struct DrinksListView: View {
     }
 
     private func row(for drinkSummary: DrinkSummary) -> some View {
-        print("row", drinkSummary.id)
-        return HStack {
+        HStack {
             VStack {
                 HStack(spacing: 0) {
                     Text(drinkSummary.name).font(.system(size: 24))
@@ -53,11 +52,5 @@ struct DrinksListView_Previews: PreviewProvider {
 extension DrinksListService {
     static var preview: Self {
         try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
-    }
-}
-
-extension Binding where Value == Bool {
-    static func optional<T: Identifiable>(_ item: Binding<T?>) -> Self {
-        .init(get: { item.wrappedValue != nil }, set: { if !$0 { item.wrappedValue = nil } })
     }
 }

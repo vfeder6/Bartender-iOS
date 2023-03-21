@@ -12,6 +12,8 @@ struct DrinkDetailsView: View {
                         .padding(.top, 16)
                         .padding(.horizontal)
                 }
+            } else {
+                ProgressView()
             }
         }
         .task {
