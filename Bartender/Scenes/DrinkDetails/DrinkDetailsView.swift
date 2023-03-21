@@ -57,8 +57,9 @@ struct DrinkDetailsView: View {
                                 .font(.system(.headline))
                             Text("Serve in: \(drink.glass.rawValue)")
                             Text("Ingredients".uppercased())
+                                .padding(.top, 20)
                             ForEach(drink.ingredients) { ingredient in
-                                Text("- \(ingredient.name)")
+                                Text(" - \(ingredient.description)")
                             }
                             Text("Instructions".uppercased())
                                 .padding(.top, 20)
@@ -92,6 +93,12 @@ extension DrinkDetailsView {
 extension Color {
     static var transparent: Self {
         .black.opacity(0)
+    }
+}
+
+extension Drink.Ingredient {
+    var description: String {
+        measure.flatMap { $0 != ._unknown ? "\(name), \($0)" : nil } ?? name
     }
 }
 
