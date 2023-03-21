@@ -8,8 +8,14 @@ struct DrinkDetailsService: Service {
         .init(networkService: .live)
     }
 
-    func perform(body: (any Encodable)?, queryItems: [URLQueryItem]) async -> Result<Drink, NetworkError> {
-        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: Drink.self)
+    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<Drink, NetworkError> {
+        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: DrinkDetailsResponse.self)
+            .flatMap { response in
+                guard let drink = response.drinks.first else {
+                    return .failure(.notDecodableData)
+                }
+                return .success(drink)
+            }
     }
 
     func perform(drinkID: String) async -> Result<Drink, NetworkError> {
@@ -17,22 +23,6 @@ struct DrinkDetailsService: Service {
     }
 }
 
-extension DrinkDetailsService {
-    static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(Drink.mock)))
-    }
-}
-
-extension Drink {
-    static var mock: Self {
-        .init(
-            id: "1",
-            name: "Test",
-            category: .cocktail,
-            glass: .highballGlass,
-            isAlcoholic: true,
-            ibaCategory: .contemporaryClassic,
-            instructions: "test instructions"
-        )
-    }
+struct DrinkDetailsResponse: Codable {
+    let drinks: [Drink]
 }
