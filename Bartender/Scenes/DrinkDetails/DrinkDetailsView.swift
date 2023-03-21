@@ -58,9 +58,7 @@ struct DrinkDetailsView: View {
                             Text("Serve in: \(drink.glass.rawValue)")
                             Text("Ingredients".uppercased())
                             ForEach(drink.ingredients) { ingredient in
-                                if let measure = ingredient.measure {
-                                    Text("- \(ingredient.name), \(measure)")
-                                }
+                                Text("- \(ingredient.name)")
                             }
                             Text("Instructions".uppercased())
                                 .padding(.top, 20)
@@ -106,6 +104,6 @@ struct DrinkDetailsView_Previews: PreviewProvider {
 
 extension DrinkDetailsService {
     static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
+        try! .init(networkService: .mock(returning: .success(DrinkDetailsResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }

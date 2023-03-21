@@ -99,24 +99,30 @@ struct Drink: Codable, Hashable, Identifiable {
         try container.encode(ibaCategory, forKey: .ibaCategory)
         try container.encode(instructions, forKey: .instructions)
 
-        let mirror = Mirror(reflecting: self)
-
-        for (index, child) in mirror.children.enumerated() {
-            if let label = child.label,
-               let value = child.value as? String,
-               label.starts(with: "ingredient"),
-               let codingKey = CodingKeys(rawValue: "str\(label)\(String(index))") {
-                try container.encode(value, forKey: codingKey)
-            }
+        guard let ingredients = Mirror(reflecting: self).children
+            .first(where: { $0.label == "ingredients" })
+            .flatMap({ $0.value as? [Ingredient] })
+        else {
+            throw EncodingError.invalidValue(
+                "ingredients",
+                .init(codingPath: [], debugDescription: "Could not encode ingredients")
+            )
         }
 
-        for (index, child) in mirror.children.enumerated() {
-            if let label = child.label,
-               let value = child.value as? String,
-               label.starts(with: "measure"),
-               let codingKey = CodingKeys(rawValue: "str\(label)\(String(index))") {
-                try container.encode(value, forKey: codingKey)
-            }
+        for (index, ingredient) in ingredients.enumerated() {
+            let index = index + 1
+
+            guard let ingredientCodingKey = CodingKeys(rawValue: "strIngredient\(String(index))")
+            else { continue }
+
+            try container.encode(ingredient.name, forKey: ingredientCodingKey)
+
+            guard
+                let measure = ingredient.measure,
+                let measureCodingKey = CodingKeys(rawValue: "strMeasure\(String(index))")
+            else { continue }
+
+            try container.encode(measure, forKey: measureCodingKey)
         }
     }
 
