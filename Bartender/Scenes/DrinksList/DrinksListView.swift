@@ -5,7 +5,7 @@ struct DrinksListView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 LazyVStack {
                     ForEach(viewModel.state.drinkSummaries) { drinkSummary in
                         row(for: drinkSummary)
@@ -50,6 +50,6 @@ struct DrinksListView_Previews: PreviewProvider {
 
 extension DrinksListService {
     static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
+        try! .init(networkClient: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }

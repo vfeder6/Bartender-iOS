@@ -2,14 +2,14 @@ import Foundation
 import Networking
 
 struct DrinkDetailsService: Service {
-    let networkService: NetworkService
+    let networkClient: NetworkClient
 
     static var live: Self {
-        .init(networkService: .live)
+        .init(networkClient: .live)
     }
 
     func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<Drink, NetworkError> {
-        await networkService.body(from: "lookup.php", with: queryItems, decodeTo: DrinkDetailsResponse.self)
+        await networkClient.response(from: "lookup.php", queryItems: queryItems, decode: DrinkDetailsResponse.self)
             .flatMap { response in
                 guard let drink = response.drinks.first else {
                     return .failure(.notDecodableData(model: type(of: response), json: nil))

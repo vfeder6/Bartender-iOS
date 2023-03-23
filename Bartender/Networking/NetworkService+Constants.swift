@@ -1,6 +1,6 @@
 import Networking
 
-extension NetworkService {
+extension NetworkClient {
     private static var `protocol`: String {
         "https"
     }
@@ -17,7 +17,7 @@ extension NetworkService {
         "9973533"
     }
 
-    static var live: NetworkService {
+    static var live: NetworkClient {
         .live(host: .init(string: "\(`protocol`)://\(host)/\(path)")!)
     }
 }
