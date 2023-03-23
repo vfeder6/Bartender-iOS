@@ -5,18 +5,12 @@ struct DismissableView<Content: View>: View {
     let content: () -> Content
 
     var body: some View {
-        GeometryReader { proxy in
-            ZStack {
-                content()
-                VStack(spacing: 0) {
-                    HStack(spacing: 0) {
-                        Spacer(minLength: 0)
-                        Button(action: { isPresented = false }, label: dismissLabel)
-                            .padding(.trailing)
-                    }
-                    Spacer(minLength: 0)
-                }
-            }
+        ZStack {
+            content()
+            Button(action: { isPresented = false }, label: dismissLabel)
+                .padding(.trailing)
+                .horizontalAlignment(.trailing)
+                .verticalAlignment(.top)
         }
     }
 
