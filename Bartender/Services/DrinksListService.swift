@@ -17,7 +17,7 @@ struct DrinksListService: Service {
     }
 }
 
-struct DrinksListResponse: Codable {
+struct DrinksListResponse: DTO {
     let drinkSummaries: [DrinkSummary]
 
     enum CodingKeys: String, CodingKey {

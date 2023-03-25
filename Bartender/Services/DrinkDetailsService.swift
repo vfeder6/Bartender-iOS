@@ -22,6 +22,6 @@ struct DrinkDetailsService: Service {
     }
 }
 
-struct DrinkDetailsResponse: Codable {
+struct DrinkDetailsResponse: DTO {
     let drinks: [Drink]
 }
