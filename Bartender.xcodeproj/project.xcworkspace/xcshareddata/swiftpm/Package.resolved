@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vfeder6/Networking",
       "state" : {
-        "branch" : "develop",
-        "revision" : "8670043078864eebf1a0b344db4f60a056fbc0e8"
+        "branch" : "feature/fixes",
+        "revision" : "457c52d83a71975eacc392c00d2f0cce30ccec50"
       }
     }
   ],

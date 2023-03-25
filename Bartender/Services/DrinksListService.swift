@@ -2,18 +2,19 @@ import Foundation
 import Networking
 
 struct DrinksListService: Service {
-    let networkClient: NetworkClient
+    let networkClient: NetworkClient<DrinksListResponse>
 
     static var live: Self {
         .init(networkClient: .live)
     }
 
-    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<[DrinkSummary], NetworkError> {
-        await networkClient.response(from: "filter.php", queryItems: queryItems, decode: DrinksListResponse.self).map(\.drinkSummaries)
+    func perform(body: Encodable?, queryItems: [URLQueryItem]) async -> Result<DrinksListResponse, NetworkError> {
+        await networkClient.responseResult(from: "filter.php", queryItems: queryItems)
     }
 
     func perform() async -> Result<[DrinkSummary], NetworkError> {
         await perform(body: nil, queryItems: [.init(name: "a", value: "Alcoholic")])
+            .map(\.drinkSummaries)
     }
 }
 

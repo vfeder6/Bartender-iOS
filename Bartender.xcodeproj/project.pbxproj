@@ -670,7 +670,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vfeder6/Networking";
 			requirement = {
-				branch = develop;
+				branch = feature/fixes;
 				kind = branch;
 			};
 		};

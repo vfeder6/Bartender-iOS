@@ -14,10 +14,10 @@ extension NetworkClient {
     }
 
     private static var apiKey: String {
-        "9973533"
+        "1"
     }
 
     static var live: NetworkClient {
-        .live(host: .init(string: "\(`protocol`)://\(host)/\(path)")!)
+        .live(baseURL: .init(string: "\(`protocol`)://\(host)/\(path)")!)
     }
 }
