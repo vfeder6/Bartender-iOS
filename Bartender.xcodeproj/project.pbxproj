@@ -18,6 +18,7 @@
 		3323B34D29C9FD61007E760E /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3323B34C29C9FD61007E760E /* HeaderScrollView.swift */; };
 		3323B35029CA0572007E760E /* ColoredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3323B34F29CA0572007E760E /* ColoredLabel.swift */; };
 		332910A829CFA80300954E4E /* Service+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332910A729CFA80300954E4E /* Service+.swift */; };
+		332910AA29CFAEED00954E4E /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332910A929CFAEED00954E4E /* URLBuilder.swift */; };
 		333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554829C36B5B00A89EF4 /* BartenderApp.swift */; };
 		333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A554A29C36B5B00A89EF4 /* RootView.swift */; };
 		333A554D29C36B5C00A89EF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333A554C29C36B5C00A89EF4 /* Images.xcassets */; };
@@ -62,6 +63,7 @@
 		3323B34C29C9FD61007E760E /* HeaderScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollView.swift; sourceTree = "<group>"; };
 		3323B34F29CA0572007E760E /* ColoredLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabel.swift; sourceTree = "<group>"; };
 		332910A729CFA80300954E4E /* Service+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+.swift"; sourceTree = "<group>"; };
+		332910A929CFAEED00954E4E /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		333A554529C36B5B00A89EF4 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		333A554829C36B5B00A89EF4 /* BartenderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderApp.swift; sourceTree = "<group>"; };
 		333A554A29C36B5B00A89EF4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				3356836229C89F2800C30FC7 /* NetworkService+Constants.swift */,
+				332910A929CFAEED00954E4E /* URLBuilder.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				3356836129C89EFA00C30FC7 /* _Unknownable.swift in Sources */,
 				3303A3E829C9D00900FD37C7 /* Aligned.swift in Sources */,
 				3356836929C89FDC00C30FC7 /* DrinkSummary+Mocks.swift in Sources */,
+				332910AA29CFAEED00954E4E /* URLBuilder.swift in Sources */,
 				3343D10C29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift in Sources */,
 				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
 				3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */,
