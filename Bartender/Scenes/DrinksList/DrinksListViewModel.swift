@@ -9,6 +9,8 @@ final class DrinksListViewModel: ObservableObject {
     struct State {
         var drinkSummaries: [DrinkSummary]
         var error: NetworkError?
+        var isSearching: Bool
+        var searchText: String
     }
 
     struct Navigation {
@@ -17,7 +19,7 @@ final class DrinksListViewModel: ObservableObject {
 
     init(drinksListService: DrinksListService = .live) {
         self.drinksListService = drinksListService
-        self.state = .init(drinkSummaries: [], error: nil)
+        self.state = .init(drinkSummaries: [], error: nil, isSearching: true, searchText: "")
         self.navigation = .init()
     }
 
@@ -34,5 +36,18 @@ final class DrinksListViewModel: ObservableObject {
 
     func drinkSelected(_ drinkSummary: DrinkSummary) {
         navigation.selectedDrink = drinkSummary
+    }
+
+    func searchButtonSelected() {
+        state.isSearching = true
+    }
+
+    func closeSearchButtonSelected() {
+        state.isSearching = false
+        state.searchText = ""
+    }
+
+    func searchTextChanged(to newText: String) {
+        state.searchText = newText
     }
 }

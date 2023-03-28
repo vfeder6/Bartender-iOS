@@ -6,17 +6,29 @@ struct DrinksListView: View {
     private let gridRowSpacing: CGFloat = 0
 
     var body: some View {
-            GeometryReader { proxy in
-                    LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: 2), spacing: 0) {
-                        ForEach(viewModel.state.drinkSummaries) { drinkSummary in
-                            box(for: drinkSummary, proxy: proxy)
-                                .onTapGesture {
-                                    viewModel.drinkSelected(drinkSummary)
-                                }
-                        }
+        GeometryReader { proxy in
+            VStack {
+                LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: 2), spacing: 0) {
+                    ForEach(viewModel.state.drinkSummaries) { drinkSummary in
+                        box(for: drinkSummary, proxy: proxy)
+                            .onTapGesture {
+                                viewModel.drinkSelected(drinkSummary)
+                            }
                     }
-                .topNavBar()
+                }
             }
+            .topNavBar(
+                isSearching: viewModel.state.isSearching,
+                text: .init(
+                    get: { viewModel.state.searchText },
+                    set: viewModel.searchTextChanged(to:)
+                )
+            ) {
+                viewModel.searchButtonSelected()
+            } onSearchFinished: {
+                viewModel.closeSearchButtonSelected()
+            }
+        }
         .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
             DrinkDetailsView(viewModel: .init(drinkID: drinkSummary.id))
         }
@@ -63,7 +75,12 @@ extension GridItem: Multipliable { }
 extension Color: Multipliable { }
 
 extension View {
-    func topNavBar() -> some View {
+    func topNavBar(
+        isSearching: Bool,
+        text: Binding<String>,
+        onSearchStarted: @escaping () -> Void,
+        onSearchFinished: @escaping () -> Void
+    ) -> some View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
@@ -83,19 +100,27 @@ extension View {
                         .frame(width: proxy.size.width + 20, height: proxy.safeAreaInsets.top)
                         .verticalAlignment(.top)
                     HStack {
-                        Text("Drinks")
-                            .font(.lato(.black, 32))
-                            .foregroundColor(.text)
-                        Spacer()
-                        Button {
-
-                        } label: {
-                            Image("search")
-                                .resizable()
-                                .renderingMode(.template)
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 24)
+                        if isSearching {
+                            TextField("Search", text: text)
+                                .textFieldStyle(.roundedBorder)
+                                .font(.lato(.regular, 16))
+                        } else {
+                            Text("Drinks")
+                                .font(.lato(.black, 32))
                                 .foregroundColor(.text)
+                        }
+                        Spacer()
+                        Button(action: isSearching ? onSearchFinished : onSearchStarted) {
+                            if isSearching {
+                                Image("cross")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 24)
+                                    .foregroundColor(.text)
+                            } else {
+                                searchImage
+                            }
                         }
                     }
                     .padding(.top, 8)
@@ -104,5 +129,14 @@ extension View {
                 }
             }
         }
+    }
+
+    var searchImage: some View {
+        Image("search")
+            .resizable()
+            .renderingMode(.template)
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 24)
+            .foregroundColor(.text)
     }
 }
