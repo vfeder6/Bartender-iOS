@@ -3,20 +3,22 @@ import SwiftUI
 struct DrinksListView: View {
     @StateObject var viewModel: DrinksListViewModel
 
+    private let gridRowSpacing: CGFloat = 0
+
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.state.drinkSummaries) { drinkSummary in
-                        row(for: drinkSummary)
-                            .onTapGesture {
-                                viewModel.drinkSelected(drinkSummary)
-                            }
-                        Divider()
+            GeometryReader { proxy in
+                ScrollView {
+                    LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: 2), spacing: 0) {
+                        ForEach(viewModel.state.drinkSummaries) { drinkSummary in
+                            box(for: drinkSummary, proxy: proxy)
+                                .onTapGesture {
+                                    viewModel.drinkSelected(drinkSummary)
+                                }
+                        }
                     }
                 }
             }
-            .navigationTitle("Drinks")
         }
         .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
             DrinkDetailsView(viewModel: .init(drinkID: drinkSummary.id))
@@ -26,19 +28,25 @@ struct DrinksListView: View {
         }
     }
 
-    private func row(for drinkSummary: DrinkSummary) -> some View {
-        HStack {
-            VStack {
-                HStack(spacing: 0) {
-                    Text(drinkSummary.name).font(.system(size: 24))
-                    Spacer(minLength: 0)
-                }
+    private func box(for drinkSummary: DrinkSummary, proxy: GeometryProxy) -> some View {
+        ZStack {
+            ZStack {
+                Image("mojito")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: proxy.size.width / 2 - (gridRowSpacing / 2), height: proxy.size.height / 2.5)
+                    .clipped()
+                LinearGradient(colors: Color.transparent.multiplied(times: 2) + [.black.opacity(0.65)], startPoint: .top, endPoint: .bottom)
             }
-            Image(systemName: "chevron.right")
-                .foregroundColor(.gray)
+            Text(drinkSummary.name)
+                .lineLimit(2)
+                .font(.lato(.black, 16))
+                .foregroundColor(.white)
+                .verticalAlignment(.bottom)
+                .horizontalAlignment(.leading)
+                .padding(.horizontal, 8).padding(.bottom, 8)
         }
-        .padding(.vertical, 20).padding(.horizontal)
-        .contentShape(Rectangle())
+
     }
 }
 
@@ -53,3 +61,6 @@ extension DrinksListService {
         try! .init(networkClient: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }
+
+extension GridItem: Multipliable { }
+extension Color: Multipliable { }

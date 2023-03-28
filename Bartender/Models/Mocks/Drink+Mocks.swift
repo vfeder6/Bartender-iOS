@@ -4,28 +4,22 @@ extension Drink {
     static var mock: Self {
         .init(
             id: "1",
-            name: "Old Fashioned",
+            name: "Old Fashioned but with a very long and overflowing name",
             category: .cocktail,
             glass: .oldFashioned,
             alcoholLevel: .alcoholic,
             ibaCategory: .unforgettables,
-            instructions: "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved.\r\nFill the glass with ice cubes and add whiskey.\r\n\r\nGarnish with orange twist, and a cocktail cherry.",
-            ingredients: [.init(name: "Mint", measure: "2 leaves"), .init(name: "Rhum", measure: "2 oz"), .init(name: "Lemon", measure: nil)]
-        )
-    }
-}
-
-extension Drink {
-    static var identifiableMock: Self {
-        .init(
-            id: UUID().uuidString,
-            name: mock.name,
-            category: mock.category,
-            glass: mock.glass,
-            alcoholLevel: mock.alcoholLevel,
-            ibaCategory: mock.ibaCategory,
-            instructions: mock.instructions,
-            ingredients: mock.ingredients
+            instructions:
+                """
+                Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water.
+                Muddle until dissolved.\r\nFill the glass with ice cubes and add whiskey.\r\n\r\n
+                Garnish with orange twist, and a cocktail cherry.
+                """,
+            ingredients: [
+                .init(name: "Mint", measure: "2 leaves"),
+                .init(name: "Rhum", measure: "2 oz"),
+                .init(name: "Lemon", measure: nil)
+            ]
         )
     }
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HeaderScrollView<Content: View>: View {
     let title: String
+    var titleLineLimit: Int = 2
     var titleFont: Font = .lato(.black, 32)
     let imageReference: String
     let content: () -> Content
@@ -27,21 +28,21 @@ struct HeaderScrollView<Content: View>: View {
                     .frame(height: headerHeight(from: proxy))
                     .clipped()
                 titleGradient
-                Text(text)
+                Text(text).lineLimit(2)
                     .horizontalAlignment(.leading)
                     .verticalAlignment(.bottom)
                     .font(titleFont)
                     .foregroundColor(.white)
-                    .padding(.bottom).padding(.leading)
+                    .padding(.bottom).padding(.horizontal)
             }
             .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
         }
-        .frame(height: height / 3)
+        .frame(height: height / 2.5)
     }
 
     private var titleGradient: LinearGradient {
         .init(
-            colors: [.transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)],
+            colors: Color.transparent.multiplied(times: 3) + [.black.opacity(0.8)],
             startPoint: .top,
             endPoint: .bottom
         )
@@ -66,7 +67,7 @@ extension HeaderScrollView {
 
 struct HeaderScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderScrollView(title: "Test", imageReference: "mojito") {
+        HeaderScrollView(title: "Test with a very very long and overflowing name", imageReference: "mojito") {
             Text("Ciao")
         }
     }
