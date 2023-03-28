@@ -37,6 +37,8 @@
 		3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836429C89F6700C30FC7 /* DrinkSummary.swift */; };
 		3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836629C89FB900C30FC7 /* Drink+Mocks.swift */; };
 		3356836929C89FDC00C30FC7 /* DrinkSummary+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356836829C89FDC00C30FC7 /* DrinkSummary+Mocks.swift */; };
+		336351E029D37E8F00BBE246 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336351DF29D37E8F00BBE246 /* Colors.xcassets */; };
+		336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336351E129D37FF600BBE246 /* Color+mapping.swift */; };
 		3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		3356836429C89F6700C30FC7 /* DrinkSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSummary.swift; sourceTree = "<group>"; };
 		3356836629C89FB900C30FC7 /* Drink+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+Mocks.swift"; sourceTree = "<group>"; };
 		3356836829C89FDC00C30FC7 /* DrinkSummary+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrinkSummary+Mocks.swift"; sourceTree = "<group>"; };
+		336351DF29D37E8F00BBE246 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		336351E129D37FF600BBE246 /* Color+mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+mapping.swift"; sourceTree = "<group>"; };
 		3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,8 +215,10 @@
 		334D0E8E29C36DDA009F08E0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				336351DF29D37E8F00BBE246 /* Colors.xcassets */,
 				333A554C29C36B5C00A89EF4 /* Images.xcassets */,
 				3303A3CA29C9CB1000FD37C7 /* Fonts */,
+				336351E129D37FF600BBE246 /* Color+mapping.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				3303A3DF29C9CC9E00FD37C7 /* Lato-Light.ttf in Resources */,
 				3303A3DE29C9CC9E00FD37C7 /* Lato-Black.ttf in Resources */,
 				3303A3E229C9CC9E00FD37C7 /* Lato-Italic.ttf in Resources */,
+				336351E029D37E8F00BBE246 /* Colors.xcassets in Resources */,
 				3303A3E129C9CC9E00FD37C7 /* Lato-Regular.ttf in Resources */,
 				3303A3E329C9CC9E00FD37C7 /* Lato-LightItalic.ttf in Resources */,
 			);
@@ -402,6 +409,7 @@
 				3303A3E529C9CD8000FD37C7 /* Font+CustomFonts.swift in Sources */,
 				334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */,
 				3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */,
+				336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */,
 				3323B35029CA0572007E760E /* ColoredLabel.swift in Sources */,
 				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,

@@ -6,9 +6,7 @@ struct DrinksListView: View {
     private let gridRowSpacing: CGFloat = 0
 
     var body: some View {
-        NavigationStack {
             GeometryReader { proxy in
-                ScrollView {
                     LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: 2), spacing: 0) {
                         ForEach(viewModel.state.drinkSummaries) { drinkSummary in
                             box(for: drinkSummary, proxy: proxy)
@@ -17,9 +15,8 @@ struct DrinksListView: View {
                                 }
                         }
                     }
-                }
+                .topNavBar()
             }
-        }
         .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
             DrinkDetailsView(viewModel: .init(drinkID: drinkSummary.id))
         }
@@ -64,3 +61,48 @@ extension DrinksListService {
 
 extension GridItem: Multipliable { }
 extension Color: Multipliable { }
+
+extension View {
+    func topNavBar() -> some View {
+        GeometryReader { proxy in
+            ScrollView {
+                VStack {
+                    self.padding(.top, proxy.safeAreaInsets.top)
+                }
+            }.overlay {
+                ZStack {
+                    Color.clear
+                        .ignoresSafeArea(edges: .top)
+                        .background(.ultraThinMaterial)
+                        .frame(width: proxy.size.width, height: proxy.safeAreaInsets.top / 2)
+                        .verticalAlignment(.top)
+                    Color.clear
+                        .ignoresSafeArea(edges: .top)
+                        .background(.ultraThinMaterial)
+                        .blur(radius: 8)
+                        .frame(width: proxy.size.width + 20, height: proxy.safeAreaInsets.top)
+                        .verticalAlignment(.top)
+                    HStack {
+                        Text("Drinks")
+                            .font(.lato(.black, 32))
+                            .foregroundColor(.text)
+                        Spacer()
+                        Button {
+
+                        } label: {
+                            Image("search")
+                                .resizable()
+                                .renderingMode(.template)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 24)
+                                .foregroundColor(.text)
+                        }
+                    }
+                    .padding(.top, 8)
+                    .padding(.horizontal, 26)
+                    .verticalAlignment(.top)
+                }
+            }
+        }
+    }
+}
