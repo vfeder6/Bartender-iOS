@@ -41,6 +41,9 @@
 		336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336351E129D37FF600BBE246 /* Color+mapping.swift */; };
 		3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */; };
 		33C0EB8B29D44C5400CD3481 /* IdentifiedLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */; };
+		33C0EB8D29D4623A00CD3481 /* SpacedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */; };
+		33C0EB8F29D4648D00CD3481 /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8E29D4648D00CD3481 /* Paddings.swift */; };
+		33C0EB9329D46EC500CD3481 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9229D46EC500CD3481 /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 		336351E129D37FF600BBE246 /* Color+mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+mapping.swift"; sourceTree = "<group>"; };
 		3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsView.swift; sourceTree = "<group>"; };
 		33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiedLazyVGrid.swift; sourceTree = "<group>"; };
+		33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedScrollView.swift; sourceTree = "<group>"; };
+		33C0EB8E29D4648D00CD3481 /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
+		33C0EB9229D46EC500CD3481 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +142,8 @@
 		3323B34E29CA0561007E760E /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				3356835829C8542F00C30FC7 /* DismissableView.swift */,
-				3323B34C29C9FD61007E760E /* HeaderScrollView.swift */,
-				33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */,
+				33C0EB8E29D4648D00CD3481 /* Paddings.swift */,
+				33C0EB9129D464B700CD3481 /* Components */,
 				3303A3E629C9CFEC00FD37C7 /* View Modifiers */,
 			);
 			path = Library;
@@ -240,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				3323B34F29CA0572007E760E /* ColoredLabel.swift */,
+				33C0EB9229D46EC500CD3481 /* NavigationBar.swift */,
 				3323B34E29CA0561007E760E /* Library */,
 			);
 			path = Components;
@@ -279,6 +285,17 @@
 				3356836029C89EFA00C30FC7 /* _Unknownable.swift */,
 			);
 			path = "Debugging Tools";
+			sourceTree = "<group>";
+		};
+		33C0EB9129D464B700CD3481 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3356835829C8542F00C30FC7 /* DismissableView.swift */,
+				3323B34C29C9FD61007E760E /* HeaderScrollView.swift */,
+				33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */,
+				33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +423,8 @@
 				334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,
 				3343D10E29C3EF90001A5C3E /* DrinkDetailsService.swift in Sources */,
+				33C0EB8F29D4648D00CD3481 /* Paddings.swift in Sources */,
+				33C0EB8D29D4623A00CD3481 /* SpacedScrollView.swift in Sources */,
 				3356836329C89F2800C30FC7 /* NetworkService+Constants.swift in Sources */,
 				332910A829CFA80300954E4E /* Service+.swift in Sources */,
 				3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */,
@@ -414,6 +433,7 @@
 				3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */,
 				33C0EB8B29D44C5400CD3481 /* IdentifiedLazyVGrid.swift in Sources */,
 				336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */,
+				33C0EB9329D46EC500CD3481 /* NavigationBar.swift in Sources */,
 				3323B35029CA0572007E760E /* ColoredLabel.swift in Sources */,
 				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,

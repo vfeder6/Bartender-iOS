@@ -25,13 +25,6 @@ struct IdentifiedLazyVGrid<Model: Identifiable, Content: View>: View {
 }
 
 extension IdentifiedLazyVGrid {
-    struct Paddings {
-        var leading: CGFloat = 0
-        var top: CGFloat = 0
-        var trailing: CGFloat = 0
-        var bottom: CGFloat = 0
-    }
-
     struct Spacings {
         var column: CGFloat = 0
         var row: CGFloat = 0

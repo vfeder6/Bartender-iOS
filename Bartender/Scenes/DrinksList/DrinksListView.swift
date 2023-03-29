@@ -89,11 +89,10 @@ extension View {
         onSearchFinished: @escaping () -> Void
     ) -> some View {
         GeometryReader { proxy in
-            ScrollView {
-                VStack {
-                    self.padding(.top, proxy.safeAreaInsets.top)
-                }
-            }.overlay {
+            SpacedScrollView(paddings: .init(top: proxy.safeAreaInsets.top)) {
+                self
+            }
+            .overlay {
                 ZStack {
                     Color.clear
                         .ignoresSafeArea(edges: .top)
@@ -126,7 +125,12 @@ extension View {
                                     .frame(height: 24)
                                     .foregroundColor(.text)
                             } else {
-                                searchImage
+                                Image("search")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 24)
+                                    .foregroundColor(.text)
                             }
                         }
                     }
@@ -136,14 +140,5 @@ extension View {
                 }
             }
         }
-    }
-
-    var searchImage: some View {
-        Image("search")
-            .resizable()
-            .renderingMode(.template)
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 24)
-            .foregroundColor(.text)
     }
 }
