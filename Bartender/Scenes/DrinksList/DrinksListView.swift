@@ -23,7 +23,7 @@ struct DrinksListView: View {
                     spacings: .init(column: columnSpacing, row: rowSpacing),
                     models: viewModel.state.drinkSummaries
                 ) { drinkSummary in
-                    box(
+                    gridElement(
                         for: drinkSummary,
                         minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
                         height: proxy.size.height / 4
@@ -41,7 +41,7 @@ struct DrinksListView: View {
         }
     }
 
-    private func box(for drinkSummary: DrinkSummary, minWidth: CGFloat, height: CGFloat) -> some View {
+    private func gridElement(for drinkSummary: DrinkSummary, minWidth: CGFloat, height: CGFloat) -> some View {
         ZStack {
             ZStack {
                 Image("mojito")
@@ -78,5 +78,4 @@ extension DrinksListService {
     }
 }
 
-extension GridItem: Multipliable { }
 extension Color: Multipliable { }

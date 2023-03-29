@@ -45,6 +45,8 @@
 		33C0EB8F29D4648D00CD3481 /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8E29D4648D00CD3481 /* Paddings.swift */; };
 		33C0EB9329D46EC500CD3481 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9229D46EC500CD3481 /* TopBar.swift */; };
 		33C0EB9529D4834B00CD3481 /* View+if.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9429D4834B00CD3481 /* View+if.swift */; };
+		33C0EB9829D4847800CD3481 /* IdentifiedMultipliable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9729D4847800CD3481 /* IdentifiedMultipliable.swift */; };
+		33C0EB9A29D484E300CD3481 /* Multipliable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9929D484E300CD3481 /* Multipliable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		33C0EB8E29D4648D00CD3481 /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
 		33C0EB9229D46EC500CD3481 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		33C0EB9429D4834B00CD3481 /* View+if.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+if.swift"; sourceTree = "<group>"; };
+		33C0EB9729D4847800CD3481 /* IdentifiedMultipliable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiedMultipliable.swift; sourceTree = "<group>"; };
+		33C0EB9929D484E300CD3481 /* Multipliable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipliable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 				3303A3D729C9CB8800FD37C7 /* Info.plist */,
 				333A554829C36B5B00A89EF4 /* BartenderApp.swift */,
 				334D0E8E29C36DDA009F08E0 /* Assets */,
+				33C0EB9629D4846900CD3481 /* Common */,
 				3356835729C8541D00C30FC7 /* Components */,
 				3356835F29C89EE100C30FC7 /* Debugging Tools */,
 				3356835A29C89E3800C30FC7 /* Models */,
@@ -301,6 +306,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		33C0EB9629D4846900CD3481 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				33C0EB9729D4847800CD3481 /* IdentifiedMultipliable.swift */,
+				33C0EB9929D484E300CD3481 /* Multipliable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -418,11 +432,13 @@
 				3356836929C89FDC00C30FC7 /* DrinkSummary+Mocks.swift in Sources */,
 				332910AA29CFAEED00954E4E /* URLBuilder.swift in Sources */,
 				3343D10C29C3EEF5001A5C3E /* DrinkDetailsViewModel.swift in Sources */,
+				33C0EB9829D4847800CD3481 /* IdentifiedMultipliable.swift in Sources */,
 				333A554B29C36B5B00A89EF4 /* RootView.swift in Sources */,
 				3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */,
 				334D0E9329C379DD009F08E0 /* DrinksListService.swift in Sources */,
 				3323B34D29C9FD61007E760E /* HeaderScrollView.swift in Sources */,
 				33C0EB9529D4834B00CD3481 /* View+if.swift in Sources */,
+				33C0EB9A29D484E300CD3481 /* Multipliable.swift in Sources */,
 				3356835E29C89E8E00C30FC7 /* Drink.swift in Sources */,
 				334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,

@@ -30,8 +30,10 @@ extension IdentifiedLazyVGrid {
     }
 }
 
+extension GridItem: Multipliable { }
+
 struct IdentifiedLazyVGrid_Previews: PreviewProvider {
-    private struct Test: Identifiable, IdentifiedMultipliable {
+    struct Test: Identifiable, IdentifiedMultipliable {
         let id: UUID
     }
 
@@ -46,19 +48,5 @@ struct IdentifiedLazyVGrid_Previews: PreviewProvider {
                     .frame(height: 50)
                     .border(.blue)
             }
-    }
-}
-
-private protocol IdentifiedMultipliable: Identifiable {
-    init(id: UUID)
-}
-
-private extension IdentifiedMultipliable {
-    static func multiply(times: Int) -> [Self] {
-        var array: [Self] = []
-        for _ in 0 ..< times {
-            array.append(.init(id: .init()))
-        }
-        return array
     }
 }
