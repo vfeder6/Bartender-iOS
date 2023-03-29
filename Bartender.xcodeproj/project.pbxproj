@@ -40,6 +40,7 @@
 		336351E029D37E8F00BBE246 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336351DF29D37E8F00BBE246 /* Colors.xcassets */; };
 		336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336351E129D37FF600BBE246 /* Color+mapping.swift */; };
 		3374F3AB29C735F5009B5D8C /* DrinkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */; };
+		33C0EB8B29D44C5400CD3481 /* IdentifiedLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		336351DF29D37E8F00BBE246 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		336351E129D37FF600BBE246 /* Color+mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+mapping.swift"; sourceTree = "<group>"; };
 		3374F3AA29C735F5009B5D8C /* DrinkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsView.swift; sourceTree = "<group>"; };
+		33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiedLazyVGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			children = (
 				3356835829C8542F00C30FC7 /* DismissableView.swift */,
 				3323B34C29C9FD61007E760E /* HeaderScrollView.swift */,
+				33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */,
 				3303A3E629C9CFEC00FD37C7 /* View Modifiers */,
 			);
 			path = Library;
@@ -409,6 +412,7 @@
 				3303A3E529C9CD8000FD37C7 /* Font+CustomFonts.swift in Sources */,
 				334D0E9829C385A8009F08E0 /* DrinksListViewModel.swift in Sources */,
 				3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */,
+				33C0EB8B29D44C5400CD3481 /* IdentifiedLazyVGrid.swift in Sources */,
 				336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */,
 				3323B35029CA0572007E760E /* ColoredLabel.swift in Sources */,
 				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,

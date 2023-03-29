@@ -3,24 +3,28 @@ import SwiftUI
 struct DrinksListView: View {
     @StateObject var viewModel: DrinksListViewModel
 
-    private let gridRowSpacing: CGFloat = 16
-    private let padding: CGFloat = 16
     private let columns: Int = 2
+    private let horizontalPadding: CGFloat = 16
+    private let rowSpacing: CGFloat = 16
+    private let columnSpacing: CGFloat = 16
 
     var body: some View {
         GeometryReader { proxy in
-            VStack {
-                LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: columns), spacing: gridRowSpacing) {
-                    ForEach(viewModel.state.drinkSummaries) { drinkSummary in
-                        box(for: drinkSummary, minWidth: proxy.size.width / Double(columns) - (2 * padding) - gridRowSpacing / 2, height: proxy.size.height / 4)
-                            .onTapGesture {
-                                viewModel.drinkSelected(drinkSummary)
-                            }
+            IdentifiedLazyVGrid(
+                columns: columns,
+                paddings: .init(leading: horizontalPadding, top: 20, trailing: horizontalPadding),
+                spacings: .init(column: columnSpacing, row: rowSpacing),
+                models: viewModel.state.drinkSummaries,
+                gridElement: { drinkSummary in
+                    box(
+                        for: drinkSummary,
+                        minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
+                        height: proxy.size.height / 4
+                    ).onTapGesture {
+                        viewModel.drinkSelected(drinkSummary)
                     }
                 }
-                .padding(.horizontal, padding)
-                .padding(.top)
-            }
+            )
             .topNavBar(
                 isSearching: viewModel.state.isSearching,
                 text: .init(
