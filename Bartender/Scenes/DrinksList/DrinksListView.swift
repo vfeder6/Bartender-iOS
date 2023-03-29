@@ -12,12 +12,14 @@ struct DrinksListView: View {
             VStack {
                 LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: columns), spacing: gridRowSpacing) {
                     ForEach(viewModel.state.drinkSummaries) { drinkSummary in
-                        box(for: drinkSummary, minWidth: proxy.size.width / Double(columns) - 2 * padding - gridRowSpacing, height: proxy.size.height / 4)
+                        box(for: drinkSummary, minWidth: proxy.size.width / Double(columns) - (2 * padding) - gridRowSpacing / 2, height: proxy.size.height / 4)
                             .onTapGesture {
                                 viewModel.drinkSelected(drinkSummary)
                             }
-                    }.padding(.top)
-                }.padding(.horizontal, padding)
+                    }
+                }
+                .padding(.horizontal, padding)
+                .padding(.top)
             }
             .topNavBar(
                 isSearching: viewModel.state.isSearching,
@@ -46,6 +48,7 @@ struct DrinksListView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(minWidth: minWidth, minHeight: height, maxHeight: height, alignment: .center)
+                    .clipped()
                 LinearGradient(colors: Color.transparent.multiplied(times: 2) + [.black.opacity(0.65)], startPoint: .top, endPoint: .bottom)
             }
             Text(drinkSummary.name)
@@ -56,7 +59,6 @@ struct DrinksListView: View {
                 .horizontalAlignment(.leading)
                 .padding(.horizontal, 12).padding(.bottom, 12)
         }
-        .cornerRadius(20)
     }
 }
 
