@@ -231,10 +231,10 @@
 		334D0E8E29C36DDA009F08E0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				336351E129D37FF600BBE246 /* Color+mapping.swift */,
 				336351DF29D37E8F00BBE246 /* Colors.xcassets */,
 				333A554C29C36B5C00A89EF4 /* Images.xcassets */,
 				3303A3CA29C9CB1000FD37C7 /* Fonts */,
-				336351E129D37FF600BBE246 /* Color+mapping.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";

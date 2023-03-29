@@ -5,6 +5,7 @@ struct HeaderScrollView<Content: View>: View {
     var titleLineLimit: Int = 2
     var titleFont: Font = .lato(.black, 28)
     let imageReference: String
+    var imageBottomOpacity: Double = 1
     let content: () -> Content
 
     var body: some View {
@@ -28,12 +29,14 @@ struct HeaderScrollView<Content: View>: View {
                     .frame(width: proxy.size.width, height: headerHeight(from: proxy))
                     .clipped()
                 titleGradient
-                Text(text).lineLimit(2)
+                Text(text)
+                    .lineLimit(2)
                     .horizontalAlignment(.leading)
                     .verticalAlignment(.bottom)
                     .font(titleFont)
-                    .foregroundColor(.white)
-                    .padding(.bottom).padding(.horizontal)
+                    .foregroundColor(.text)
+                    .padding(.bottom, 8)
+                    .padding(.horizontal)
             }
             .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
         }
@@ -42,7 +45,10 @@ struct HeaderScrollView<Content: View>: View {
 
     private var titleGradient: LinearGradient {
         .init(
-            colors: Color.clear.multiplied(times: 3) + [.black.opacity(0.8)],
+            stops: [
+                .init(color: .clear, location: 0.7),
+                .init(color: .standardBackground.opacity(imageBottomOpacity), location: 1)
+            ],
             startPoint: .top,
             endPoint: .bottom
         )
@@ -68,7 +74,7 @@ extension HeaderScrollView {
 struct HeaderScrollView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderScrollView(title: "Test with a very very long and overflowing name", imageReference: "mojito") {
-            Text("Ciao")
+            Text("Test")
         }
     }
 }

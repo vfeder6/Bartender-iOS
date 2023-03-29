@@ -4,7 +4,7 @@ extension Drink {
     static var mock: Self {
         .init(
             id: "1",
-            name: "Old Fashioned but with a very long and overflowing name",
+            name: "Old Fashioned",
             category: .cocktail,
             glass: .oldFashioned,
             alcoholLevel: .alcoholic,

@@ -6,11 +6,19 @@ struct DrinkDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let drink = viewModel.state.drink {
-                HeaderScrollView(title: drink.name, imageReference: "mojito") {
+                HeaderScrollView(title: drink.name, imageReference: "mojito", imageBottomOpacity: 0.8) {
                     content(drink)
                         .horizontalAlignment(.leading)
                         .padding(.top, 16)
                         .padding(.horizontal)
+                }
+                .background {
+                    Image("mojito")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.2)
+                        .blur(radius: 8)
                 }
             } else {
                 ProgressView()
@@ -24,7 +32,8 @@ struct DrinkDetailsView: View {
     private func content(_ drink: Drink) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
-                .font(.lato(.black, 20))
+                .font(.lato(.black, 18))
+                .foregroundColor(.text)
             if let ibaCategory = drink.ibaCategory {
                 ColoredLabel(title: ibaCategory.rawValue.uppercased(), color: .red)
             }
@@ -39,20 +48,24 @@ struct DrinkDetailsView: View {
     @ViewBuilder
     private func ingredients(_ drink: Drink) -> some View {
         Text("Ingredients")
-            .font(.lato(.black, 24))
+            .font(.lato(.black, 20))
+            .foregroundColor(.text)
         ForEach(drink.ingredients) { ingredient in
             Text(" •  \(ingredient.description)")
-                .font(.lato(.italic, 18))
+                .font(.lato(.italic, 16))
+                .foregroundColor(.text)
         }
     }
 
     @ViewBuilder
     private func instructions(_ drink: Drink) -> some View {
         Text("Instructions")
-            .font(.lato(.black, 24))
+            .font(.lato(.black, 20))
+            .foregroundColor(.text)
         Text(drink.instructions)
             .lineSpacing(4)
-            .font(.lato(.regular, 18))
+            .font(.lato(.regular, 16))
+            .foregroundColor(.text)
     }
 }
 
