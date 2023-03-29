@@ -2,12 +2,11 @@ import SwiftUI
 
 struct IdentifiedLazyVGrid<Model: Identifiable, Content: View>: View {
     let columns: Int
-    let paddings: Paddings
-    let spacings: Spacings
-
+    var paddings: Paddings = .init()
+    var spacings: Spacings = .init()
+    var gridItemSize: GridItem.Size = .flexible()
     let models: [Model]
     let gridElement: (Model) -> Content
-    var gridItemSize: GridItem.Size = .flexible()
 
     var body: some View {
         VStack {
