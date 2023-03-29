@@ -10,31 +10,28 @@ struct DrinksListView: View {
 
     var body: some View {
         GeometryReader { proxy in
-            IdentifiedLazyVGrid(
-                columns: columns,
-                paddings: .init(leading: horizontalPadding, top: 20, trailing: horizontalPadding),
-                spacings: .init(column: columnSpacing, row: rowSpacing),
-                models: viewModel.state.drinkSummaries,
-                gridElement: { drinkSummary in
-                    box(
-                        for: drinkSummary,
-                        minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
-                        height: proxy.size.height / 4
-                    ).onTapGesture {
-                        viewModel.drinkSelected(drinkSummary)
-                    }
-                }
-            )
-            .topNavBar(
+            TopBar(
+                title: "Drinks",
                 isSearching: viewModel.state.isSearching,
-                text: .init(
-                    get: { viewModel.state.searchText },
-                    set: viewModel.searchTextChanged(to:)
-                )
+                text: .init(get: { viewModel.state.searchText }, set: viewModel.searchTextChanged(to:)),
+                onSearchStarted: viewModel.searchButtonSelected,
+                onSearchFinished: viewModel.closeSearchButtonSelected
             ) {
-                viewModel.searchButtonSelected()
-            } onSearchFinished: {
-                viewModel.closeSearchButtonSelected()
+                IdentifiedLazyVGrid(
+                    columns: columns,
+                    paddings: .init(leading: horizontalPadding, top: 20, trailing: horizontalPadding),
+                    spacings: .init(column: columnSpacing, row: rowSpacing),
+                    models: viewModel.state.drinkSummaries,
+                    gridElement: { drinkSummary in
+                        box(
+                            for: drinkSummary,
+                            minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
+                            height: proxy.size.height / 4
+                        ).onTapGesture {
+                            viewModel.drinkSelected(drinkSummary)
+                        }
+                    }
+                )
             }
         }
         .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in

@@ -1,18 +1,18 @@
 import SwiftUI
 
-struct NavigationBar<Content: View>: View {
+struct TopBar<Content: View>: View {
     private let materialYOffset: CGFloat = 40
 
     let title: String
     let isSearching: Bool
     let text: Binding<String>
-    let surroundedContent: () -> Content
     var onSearchStarted: () -> Void
     var onSearchFinished: () -> Void
+    let surroundedContent: () -> Content
 
     var body: some View {
         GeometryReader { proxy in
-            SpacedScrollView(paddings: .init(top: proxy.safeAreaInsets.top + 20)) {
+            SpacedScrollView(paddings: .init(top: proxy.safeAreaInsets.top)) {
                 surroundedContent()
             }
             .overlay {
@@ -68,14 +68,14 @@ struct NavigationBar<Content: View>: View {
     }
 }
 
-struct NavigationBar_Previews: PreviewProvider {
+struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBar(title: "Example", isSearching: false, text: .constant("")) {
+        TopBar(title: "Example", isSearching: false, text: .constant(""), onSearchStarted: { }, onSearchFinished: { }) {
             ForEach(0 ... 10, id: \.self) { int in
                 Image("mojito")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             }
-        } onSearchStarted: { } onSearchFinished: { }
+        }
     }
 }
