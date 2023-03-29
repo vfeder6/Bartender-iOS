@@ -44,6 +44,7 @@
 		33C0EB8D29D4623A00CD3481 /* SpacedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */; };
 		33C0EB8F29D4648D00CD3481 /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8E29D4648D00CD3481 /* Paddings.swift */; };
 		33C0EB9329D46EC500CD3481 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9229D46EC500CD3481 /* NavigationBar.swift */; };
+		33C0EB9529D4834B00CD3481 /* View+if.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9429D4834B00CD3481 /* View+if.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedScrollView.swift; sourceTree = "<group>"; };
 		33C0EB8E29D4648D00CD3481 /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
 		33C0EB9229D46EC500CD3481 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		33C0EB9429D4834B00CD3481 /* View+if.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+if.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				33C0EB8E29D4648D00CD3481 /* Paddings.swift */,
+				33C0EB9429D4834B00CD3481 /* View+if.swift */,
 				33C0EB9129D464B700CD3481 /* Components */,
 				3303A3E629C9CFEC00FD37C7 /* View Modifiers */,
 			);
@@ -419,6 +422,7 @@
 				3356836729C89FB900C30FC7 /* Drink+Mocks.swift in Sources */,
 				334D0E9329C379DD009F08E0 /* DrinksListService.swift in Sources */,
 				3323B34D29C9FD61007E760E /* HeaderScrollView.swift in Sources */,
+				33C0EB9529D4834B00CD3481 /* View+if.swift in Sources */,
 				3356835E29C89E8E00C30FC7 /* Drink.swift in Sources */,
 				334D0E8B29C36CF5009F08E0 /* DrinksListView.swift in Sources */,
 				333A554929C36B5B00A89EF4 /* BartenderApp.swift in Sources */,

@@ -21,17 +21,16 @@ struct DrinksListView: View {
                     columns: columns,
                     paddings: .init(leading: horizontalPadding, top: 20, trailing: horizontalPadding),
                     spacings: .init(column: columnSpacing, row: rowSpacing),
-                    models: viewModel.state.drinkSummaries,
-                    gridElement: { drinkSummary in
-                        box(
-                            for: drinkSummary,
-                            minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
-                            height: proxy.size.height / 4
-                        ).onTapGesture {
-                            viewModel.drinkSelected(drinkSummary)
-                        }
+                    models: viewModel.state.drinkSummaries
+                ) { drinkSummary in
+                    box(
+                        for: drinkSummary,
+                        minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
+                        height: proxy.size.height / 4
+                    ).onTapGesture {
+                        viewModel.drinkSelected(drinkSummary)
                     }
-                )
+                }
             }
         }
         .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
@@ -50,7 +49,11 @@ struct DrinksListView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(minWidth: minWidth, minHeight: height, maxHeight: height, alignment: .center)
                     .clipped()
-                LinearGradient(colors: Color.clear.multiplied(times: 2) + [.black.opacity(0.65)], startPoint: .top, endPoint: .bottom)
+                LinearGradient(
+                    colors: Color.clear.multiplied(times: 2) + [.black.opacity(0.65)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
             }
             Text(drinkSummary.name)
                 .lineLimit(2)
@@ -77,65 +80,3 @@ extension DrinksListService {
 
 extension GridItem: Multipliable { }
 extension Color: Multipliable { }
-
-extension View {
-    func topNavBar(
-        isSearching: Bool,
-        text: Binding<String>,
-        onSearchStarted: @escaping () -> Void,
-        onSearchFinished: @escaping () -> Void
-    ) -> some View {
-        GeometryReader { proxy in
-            SpacedScrollView(paddings: .init(top: proxy.safeAreaInsets.top)) {
-                self
-            }
-            .overlay {
-                ZStack {
-                    Color.clear
-                        .ignoresSafeArea(edges: .top)
-                        .background(.ultraThinMaterial)
-                        .frame(width: proxy.size.width, height: proxy.safeAreaInsets.top / 2)
-                        .verticalAlignment(.top)
-                    Color.clear
-                        .ignoresSafeArea(edges: .top)
-                        .background(.ultraThinMaterial)
-                        .blur(radius: 8)
-                        .frame(width: proxy.size.width + 20, height: proxy.safeAreaInsets.top)
-                        .verticalAlignment(.top)
-                    HStack {
-                        if isSearching {
-                            TextField("Search", text: text)
-                                .textFieldStyle(.roundedBorder)
-                                .font(.lato(.regular, 16))
-                        } else {
-                            Text("Drinks")
-                                .font(.lato(.black, 32))
-                                .foregroundColor(.text)
-                        }
-                        Spacer()
-                        Button(action: isSearching ? onSearchFinished : onSearchStarted) {
-                            if isSearching {
-                                Image("cross")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 24)
-                                    .foregroundColor(.text)
-                            } else {
-                                Image("search")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 24)
-                                    .foregroundColor(.text)
-                            }
-                        }
-                    }
-                    .padding(.top, 8)
-                    .padding(.horizontal, 26)
-                    .verticalAlignment(.top)
-                }
-            }
-        }
-    }
-}
