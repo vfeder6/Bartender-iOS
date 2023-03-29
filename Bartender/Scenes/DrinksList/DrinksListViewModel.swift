@@ -19,7 +19,7 @@ final class DrinksListViewModel: ObservableObject {
 
     init(drinksListService: DrinksListService = .live) {
         self.drinksListService = drinksListService
-        self.state = .init(drinkSummaries: [], error: nil, isSearching: true, searchText: "")
+        self.state = .init(drinkSummaries: [], error: nil, isSearching: false, searchText: "")
         self.navigation = .init()
     }
 

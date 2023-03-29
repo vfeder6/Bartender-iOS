@@ -3,19 +3,21 @@ import SwiftUI
 struct DrinksListView: View {
     @StateObject var viewModel: DrinksListViewModel
 
-    private let gridRowSpacing: CGFloat = 0
+    private let gridRowSpacing: CGFloat = 16
+    private let padding: CGFloat = 16
+    private let columns: Int = 2
 
     var body: some View {
         GeometryReader { proxy in
             VStack {
-                LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: 2), spacing: 0) {
+                LazyVGrid(columns: GridItem(.flexible(), spacing: gridRowSpacing).multiplied(times: columns), spacing: gridRowSpacing) {
                     ForEach(viewModel.state.drinkSummaries) { drinkSummary in
-                        box(for: drinkSummary, proxy: proxy)
+                        box(for: drinkSummary, minWidth: proxy.size.width / Double(columns) - 2 * padding - gridRowSpacing, height: proxy.size.height / 4)
                             .onTapGesture {
                                 viewModel.drinkSelected(drinkSummary)
                             }
-                    }
-                }
+                    }.padding(.top)
+                }.padding(.horizontal, padding)
             }
             .topNavBar(
                 isSearching: viewModel.state.isSearching,
@@ -37,14 +39,13 @@ struct DrinksListView: View {
         }
     }
 
-    private func box(for drinkSummary: DrinkSummary, proxy: GeometryProxy) -> some View {
+    private func box(for drinkSummary: DrinkSummary, minWidth: CGFloat, height: CGFloat) -> some View {
         ZStack {
             ZStack {
                 Image("mojito")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: proxy.size.width / 2 - (gridRowSpacing / 2), height: proxy.size.height / 2.5)
-                    .clipped()
+                    .frame(minWidth: minWidth, minHeight: height, maxHeight: height, alignment: .center)
                 LinearGradient(colors: Color.transparent.multiplied(times: 2) + [.black.opacity(0.65)], startPoint: .top, endPoint: .bottom)
             }
             Text(drinkSummary.name)
@@ -53,9 +54,9 @@ struct DrinksListView: View {
                 .foregroundColor(.white)
                 .verticalAlignment(.bottom)
                 .horizontalAlignment(.leading)
-                .padding(.horizontal, 8).padding(.bottom, 8)
+                .padding(.horizontal, 12).padding(.bottom, 12)
         }
-
+        .cornerRadius(20)
     }
 }
 

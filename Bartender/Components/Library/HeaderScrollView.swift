@@ -3,7 +3,7 @@ import SwiftUI
 struct HeaderScrollView<Content: View>: View {
     let title: String
     var titleLineLimit: Int = 2
-    var titleFont: Font = .lato(.black, 32)
+    var titleFont: Font = .lato(.black, 28)
     let imageReference: String
     let content: () -> Content
 
@@ -25,7 +25,7 @@ struct HeaderScrollView<Content: View>: View {
                 Image(imageReference)
                     .resizable()
                     .scaledToFill()
-                    .frame(height: headerHeight(from: proxy))
+                    .frame(width: proxy.size.width, height: headerHeight(from: proxy))
                     .clipped()
                 titleGradient
                 Text(text).lineLimit(2)
