@@ -4,9 +4,9 @@ struct DrinksListView: View {
     @StateObject var viewModel: DrinksListViewModel
 
     private let columns: Int = 2
-    private let horizontalPadding: CGFloat = 16
-    private let rowSpacing: CGFloat = 16
-    private let columnSpacing: CGFloat = 16
+    private let horizontalPadding: CGFloat = 0
+    private let rowSpacing: CGFloat = 0
+    private let columnSpacing: CGFloat = 0
 
     var body: some View {
         GeometryReader { proxy in
