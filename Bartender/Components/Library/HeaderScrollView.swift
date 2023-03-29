@@ -42,7 +42,7 @@ struct HeaderScrollView<Content: View>: View {
 
     private var titleGradient: LinearGradient {
         .init(
-            colors: Color.transparent.multiplied(times: 3) + [.black.opacity(0.8)],
+            colors: Color.clear.multiplied(times: 3) + [.black.opacity(0.8)],
             startPoint: .top,
             endPoint: .bottom
         )

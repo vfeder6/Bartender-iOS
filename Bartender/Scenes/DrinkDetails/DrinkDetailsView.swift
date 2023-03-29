@@ -56,12 +56,6 @@ struct DrinkDetailsView: View {
     }
 }
 
-extension Color {
-    static var transparent: Self {
-        .black.opacity(0)
-    }
-}
-
 extension Drink.Ingredient {
     var description: String {
         measure.flatMap { $0 != ._unknown ? "\(name), \($0)" : nil } ?? name

@@ -53,7 +53,7 @@ struct DrinksListView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(minWidth: minWidth, minHeight: height, maxHeight: height, alignment: .center)
                     .clipped()
-                LinearGradient(colors: Color.transparent.multiplied(times: 2) + [.black.opacity(0.65)], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: Color.clear.multiplied(times: 2) + [.black.opacity(0.65)], startPoint: .top, endPoint: .bottom)
             }
             Text(drinkSummary.name)
                 .lineLimit(2)
