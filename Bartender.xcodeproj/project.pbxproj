@@ -43,7 +43,7 @@
 		33C0EB8B29D44C5400CD3481 /* IdentifiedLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */; };
 		33C0EB8D29D4623A00CD3481 /* SpacedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */; };
 		33C0EB8F29D4648D00CD3481 /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB8E29D4648D00CD3481 /* Paddings.swift */; };
-		33C0EB9329D46EC500CD3481 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9229D46EC500CD3481 /* NavigationBar.swift */; };
+		33C0EB9329D46EC500CD3481 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9229D46EC500CD3481 /* TopBar.swift */; };
 		33C0EB9529D4834B00CD3481 /* View+if.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0EB9429D4834B00CD3481 /* View+if.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +96,7 @@
 		33C0EB8A29D44C5400CD3481 /* IdentifiedLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiedLazyVGrid.swift; sourceTree = "<group>"; };
 		33C0EB8C29D4623A00CD3481 /* SpacedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedScrollView.swift; sourceTree = "<group>"; };
 		33C0EB8E29D4648D00CD3481 /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
-		33C0EB9229D46EC500CD3481 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		33C0EB9229D46EC500CD3481 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		33C0EB9429D4834B00CD3481 /* View+if.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+if.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				3323B34F29CA0572007E760E /* ColoredLabel.swift */,
-				33C0EB9229D46EC500CD3481 /* NavigationBar.swift */,
+				33C0EB9229D46EC500CD3481 /* TopBar.swift */,
 				3323B34E29CA0561007E760E /* Library */,
 			);
 			path = Components;
@@ -437,7 +437,7 @@
 				3356836529C89F6700C30FC7 /* DrinkSummary.swift in Sources */,
 				33C0EB8B29D44C5400CD3481 /* IdentifiedLazyVGrid.swift in Sources */,
 				336351E229D37FF600BBE246 /* Color+mapping.swift in Sources */,
-				33C0EB9329D46EC500CD3481 /* NavigationBar.swift in Sources */,
+				33C0EB9329D46EC500CD3481 /* TopBar.swift in Sources */,
 				3323B35029CA0572007E760E /* ColoredLabel.swift in Sources */,
 				3356835929C8542F00C30FC7 /* DismissableView.swift in Sources */,
 				334D0E8D29C36D41009F08E0 /* IngredientsListView.swift in Sources */,
