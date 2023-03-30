@@ -9,6 +9,7 @@ extension Drink {
             glass: .oldFashioned,
             alcoholLevel: .alcoholic,
             ibaCategory: .unforgettables,
+            imageURL: .init(string: "https://example.com")!,
             instructions:
                 """
                 Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water.

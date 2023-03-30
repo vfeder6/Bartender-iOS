@@ -6,19 +6,23 @@ struct DrinkDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let drink = viewModel.state.drink {
-                HeaderScrollView(title: drink.name, imageReference: "mojito", imageBottomOpacity: 0.8) {
+                HeaderScrollView(title: drink.name, imageType: .actual(viewModel.state.drinkImage ?? Image("mojito")), imageBottomOpacity: 0.8) {
                     content(drink)
                         .horizontalAlignment(.leading)
                         .padding(.top, 16)
                         .padding(.horizontal)
                 }
                 .background {
-                    Image("mojito")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-                        .opacity(0.2)
-                        .blur(radius: 8)
+                    if let image = viewModel.state.drinkImage {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .edgesIgnoringSafeArea(.all)
+                            .opacity(0.2)
+                            .blur(radius: 8)
+                    } else {
+                        Color.clear
+                    }
                 }
             } else {
                 ProgressView()

@@ -1,3 +1,5 @@
+import Foundation
+
 struct Drink: Codable, Hashable, Identifiable {
     let id: String
     let name: String
@@ -5,6 +7,7 @@ struct Drink: Codable, Hashable, Identifiable {
     let glass: Glass
     let alcoholLevel: AlcoholLevel
     let ibaCategory: IBACategory?
+    let imageURL: URL
     let instructions: String
     var ingredients: [Ingredient]
 
@@ -15,6 +18,7 @@ struct Drink: Codable, Hashable, Identifiable {
         glass: Glass,
         alcoholLevel: AlcoholLevel,
         ibaCategory: IBACategory?,
+        imageURL: URL,
         instructions: String,
         ingredients: [Ingredient]
     ) {
@@ -24,6 +28,7 @@ struct Drink: Codable, Hashable, Identifiable {
         self.glass = glass
         self.alcoholLevel = alcoholLevel
         self.ibaCategory = ibaCategory
+        self.imageURL = imageURL
         self.instructions = instructions
         self.ingredients = ingredients
     }
@@ -37,6 +42,7 @@ struct Drink: Codable, Hashable, Identifiable {
         glass = try values.decode(Glass.self, forKey: .glass)
         alcoholLevel = try values.decode(AlcoholLevel.self, forKey: .alcoholLevel)
         ibaCategory = values._decodeDebug(IBACategory.self, forKey: .ibaCategory)
+        imageURL = try values.decode(URL.self, forKey: .imageURL)
         instructions = try values.decode(String.self, forKey: .instructions)
         ingredients = []
 
@@ -133,6 +139,7 @@ struct Drink: Codable, Hashable, Identifiable {
         case glass = "strGlass"
         case alcoholLevel = "strAlcoholic"
         case ibaCategory = "strIBA"
+        case imageURL = "strDrinkThumb"
         case instructions = "strInstructions"
         case ingredient1 = "strIngredient1"
         case ingredient2 = "strIngredient2"

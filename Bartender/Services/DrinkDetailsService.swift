@@ -1,7 +1,7 @@
 import Foundation
 import Networking
 
-struct DrinkDetailsService: Service {
+struct DrinkDetailsService: Microservice {
     let networkClient: NetworkClient<DrinkDetailsResponse>
 
     func perform(drinkID: String) async -> Result<Drink, NetworkError> {

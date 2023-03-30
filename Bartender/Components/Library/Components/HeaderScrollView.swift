@@ -4,7 +4,7 @@ struct HeaderScrollView<Content: View>: View {
     let title: String
     var titleLineLimit: Int = 2
     var titleFont: Font = .lato(.black, 28)
-    let imageReference: String
+    let imageType: ImageType
     var imageBottomOpacity: Double = 1
     let content: () -> Content
 
@@ -23,7 +23,7 @@ struct HeaderScrollView<Content: View>: View {
     private func header(height: CGFloat, text: String) -> some View {
         GeometryReader { proxy in
             ZStack {
-                Image(imageReference)
+                image
                     .resizable()
                     .scaledToFill()
                     .frame(width: proxy.size.width, height: headerHeight(from: proxy))
@@ -43,6 +43,16 @@ struct HeaderScrollView<Content: View>: View {
         .frame(height: height / 2.5)
     }
 
+    private var image: Image {
+        switch imageType {
+        case .reference(let reference):
+            return Image(reference)
+
+        case .actual(let image):
+            return image
+        }
+    }
+
     private var titleGradient: LinearGradient {
         .init(
             stops: [
@@ -52,6 +62,13 @@ struct HeaderScrollView<Content: View>: View {
             startPoint: .top,
             endPoint: .bottom
         )
+    }
+}
+
+extension HeaderScrollView {
+    enum ImageType {
+        case reference(String)
+        case actual(Image)
     }
 }
 
@@ -73,7 +90,7 @@ extension HeaderScrollView {
 
 struct HeaderScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderScrollView(title: "Test with a very very long and overflowing name", imageReference: "mojito") {
+        HeaderScrollView(title: "Test with a very very long and overflowing name", imageType: .reference("mojito")) {
             Text("Test")
         }
     }

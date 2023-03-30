@@ -13,3 +13,17 @@ extension NetworkClient {
         ).build())
     }
 }
+
+extension MediaNetworkClient {
+    private static var apiKey: String {
+        "1"
+    }
+
+    static var live: MediaNetworkClient {
+        .live(baseURL: URLBuilder(
+            protocol: .https,
+            host: "www.thecocktaildb.com",
+            pathComponents: "images"
+        ).build())
+    }
+}
