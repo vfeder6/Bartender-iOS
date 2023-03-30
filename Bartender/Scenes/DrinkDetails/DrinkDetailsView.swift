@@ -6,7 +6,22 @@ struct DrinkDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let drink = viewModel.state.drink {
-                view(for: drink)
+                HeaderScrollView(title: drink.name, imageReference: "mojito", imageBottomOpacity: 0.8) {
+                    content(drink)
+                        .horizontalAlignment(.leading)
+                        .padding(.top, 16)
+                        .padding(.horizontal)
+                }
+                .background {
+                    Image("mojito")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.2)
+                        .blur(radius: 8)
+                }
+            } else {
+                ProgressView()
             }
         }
         .task {
@@ -14,85 +29,43 @@ struct DrinkDetailsView: View {
         }
     }
 
-    private func view(for drink: Drink) -> some View {
-        GeometryReader { proxy in
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    GeometryReader { proxy in
-                        ZStack {
-                            Image("mojito")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: headerHeight(from: proxy))
-                                .clipped()
-                            LinearGradient(colors: [.transparent, .transparent, .transparent, .transparent, .transparent, .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    Text(drink.name)
-                                        .font(.system(size: 32, weight: .bold))
-                                        .foregroundColor(.white)
-                                        .padding(.bottom).padding(.leading)
-                                    Spacer()
-                                }
-                            }
-                        }
-                        .offset(x: 0, y: topBlockingScrollOffset(from: proxy))
-                    }
-                    .frame(height: proxy.size.height / 3)
-                    .padding(.bottom, 16)
-                    HStack(spacing: 0) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            if let ibaCategory = drink.ibaCategory {
-                                Text(ibaCategory.rawValue.uppercased())
-                                    .foregroundColor(.red)
-                                    .font(.system(size: 16, weight: .bold))
-                                    .padding(6)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 4)
-                                            .foregroundColor(.red.opacity(0.5))
-                                    }
-                            }
-                            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
-                                .font(.system(.headline))
-                            Text("Serve in: \(drink.glass.rawValue)")
-                            Text("Ingredients".uppercased())
-                                .padding(.top, 20)
-                            ForEach(drink.ingredients) { ingredient in
-                                Text(" - \(ingredient.description)")
-                            }
-                            Text("Instructions".uppercased())
-                                .padding(.top, 20)
-                            Text(drink.instructions)
-                        }
-                        Spacer(minLength: 0)
-                    }.padding(.horizontal)
-                }
+    private func content(_ drink: Drink) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("\(drink.category.rawValue) - \(drink.alcoholLevel.rawValue)")
+                .font(.lato(.black, 18))
+                .foregroundColor(.text)
+            if let ibaCategory = drink.ibaCategory {
+                ColoredLabel(title: ibaCategory.rawValue.uppercased(), color: .red)
             }
+            ColoredLabel(title: drink.glass.rawValue.uppercased(), color: .blue, font: .lato(.black, 14))
+            Divider().padding(.vertical, 8)
+            ingredients(drink)
+            Divider().padding(.vertical, 8)
+            instructions(drink)
         }
-        .ignoresSafeArea(edges: .top)
-    }
-}
-
-extension DrinkDetailsView {
-    private func scrollOffset(from proxy: GeometryProxy) -> CGFloat {
-        proxy.frame(in: .global).minY
     }
 
-    private func topBlockingScrollOffset(from proxy: GeometryProxy) -> CGFloat {
-        let offset = scrollOffset(from: proxy)
-        return offset > 0 ? -offset : 0
+    @ViewBuilder
+    private func ingredients(_ drink: Drink) -> some View {
+        Text("Ingredients")
+            .font(.lato(.black, 20))
+            .foregroundColor(.text)
+        ForEach(drink.ingredients) { ingredient in
+            Text(" •  \(ingredient.description)")
+                .font(.lato(.italic, 16))
+                .foregroundColor(.text)
+        }
     }
 
-    private func headerHeight(from proxy: GeometryProxy) -> CGFloat {
-        let offset = scrollOffset(from: proxy)
-        return offset > 0 ? proxy.size.height + offset : proxy.size.height
-    }
-}
-
-extension Color {
-    static var transparent: Self {
-        .black.opacity(0)
+    @ViewBuilder
+    private func instructions(_ drink: Drink) -> some View {
+        Text("Instructions")
+            .font(.lato(.black, 20))
+            .foregroundColor(.text)
+        Text(drink.instructions)
+            .lineSpacing(4)
+            .font(.lato(.regular, 16))
+            .foregroundColor(.text)
     }
 }
 
@@ -111,6 +84,6 @@ struct DrinkDetailsView_Previews: PreviewProvider {
 
 extension DrinkDetailsService {
     static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinkDetailsResponse.mock), expecting: 200, after: .seconds(0.5)))
+        try! .init(networkClient: .mock(returning: .success(DrinkDetailsResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }

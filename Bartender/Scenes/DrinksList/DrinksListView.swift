@@ -3,44 +3,66 @@ import SwiftUI
 struct DrinksListView: View {
     @StateObject var viewModel: DrinksListViewModel
 
+    private let columns: Int = 2
+    private let horizontalPadding: CGFloat = 0
+    private let rowSpacing: CGFloat = 0
+    private let columnSpacing: CGFloat = 0
+
     var body: some View {
-        NavigationStack {
-            ScrollView(showsIndicators: false) {
-                LazyVStack {
-                    ForEach(viewModel.state.drinkSummaries) { drinkSummary in
-                        row(for: drinkSummary)
-                            .onTapGesture {
-                                viewModel.drinkSelected(drinkSummary)
-                            }
-                        Divider()
+        GeometryReader { proxy in
+            TopBar(
+                title: "Drinks",
+                isSearching: viewModel.state.isSearching,
+                text: .init(get: { viewModel.state.searchText }, set: viewModel.searchTextChanged(to:)),
+                onSearchStarted: viewModel.searchButtonSelected,
+                onSearchFinished: viewModel.closeSearchButtonSelected
+            ) {
+                IdentifiedLazyVGrid(
+                    columns: columns,
+                    paddings: .init(leading: horizontalPadding, top: 20, trailing: horizontalPadding),
+                    spacings: .init(column: columnSpacing, row: rowSpacing),
+                    models: viewModel.state.drinkSummaries
+                ) { drinkSummary in
+                    gridElement(
+                        for: drinkSummary,
+                        minWidth: proxy.size.width / Double(columns) - (2 * horizontalPadding) - columnSpacing / 2,
+                        height: proxy.size.height / 4
+                    ).onTapGesture {
+                        viewModel.drinkSelected(drinkSummary)
                     }
                 }
             }
-            .navigationTitle("Drinks")
         }
-        .fullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
+        .dismissableFullScreenCover(item: $viewModel.navigation.selectedDrink) { drinkSummary in
             DrinkDetailsView(viewModel: .init(drinkID: drinkSummary.id))
-                .dismissable(isPresented: .optional($viewModel.navigation.selectedDrink))
         }
         .task {
             await viewModel.fetch()
         }
     }
 
-    private func row(for drinkSummary: DrinkSummary) -> some View {
-        print("row", drinkSummary.id)
-        return HStack {
-            VStack {
-                HStack(spacing: 0) {
-                    Text(drinkSummary.name).font(.system(size: 24))
-                    Spacer(minLength: 0)
-                }
+    private func gridElement(for drinkSummary: DrinkSummary, minWidth: CGFloat, height: CGFloat) -> some View {
+        ZStack {
+            ZStack {
+                Image("mojito")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(minWidth: minWidth, minHeight: height, maxHeight: height, alignment: .center)
+                    .clipped()
+                LinearGradient(
+                    colors: Color.clear.multiplied(times: 2) + [.black.opacity(0.65)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
             }
-            Image(systemName: "chevron.right")
-                .foregroundColor(.gray)
+            Text(drinkSummary.name)
+                .lineLimit(2)
+                .font(.lato(.black, 16))
+                .foregroundColor(.white)
+                .verticalAlignment(.bottom)
+                .horizontalAlignment(.leading)
+                .padding(.horizontal, 12).padding(.bottom, 12)
         }
-        .padding(.vertical, 20).padding(.horizontal)
-        .contentShape(Rectangle())
     }
 }
 
@@ -52,12 +74,8 @@ struct DrinksListView_Previews: PreviewProvider {
 
 extension DrinksListService {
     static var preview: Self {
-        try! .init(networkService: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
+        try! .init(networkClient: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }
 
-extension Binding where Value == Bool {
-    static func optional<T: Identifiable>(_ item: Binding<T?>) -> Self {
-        .init(get: { item.wrappedValue != nil }, set: { if !$0 { item.wrappedValue = nil } })
-    }
-}
+extension Color: Multipliable { }

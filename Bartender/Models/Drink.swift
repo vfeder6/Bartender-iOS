@@ -31,61 +31,61 @@ struct Drink: Codable, Hashable, Identifiable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        id = values._decodeDebug(String.self, forKey: .id)
-        name = values._decodeDebug(String.self, forKey: .name)
-        category = values._decodeDebug(Category.self, forKey: .category)
-        glass = values._decodeDebug(Glass.self, forKey: .glass)
-        alcoholLevel = values._decodeDebug(AlcoholLevel.self, forKey: .alcoholLevel)
+        id = try values.decode(String.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        category = try values.decode(Category.self, forKey: .category)
+        glass = try values.decode(Glass.self, forKey: .glass)
+        alcoholLevel = try values.decode(AlcoholLevel.self, forKey: .alcoholLevel)
         ibaCategory = values._decodeDebug(IBACategory.self, forKey: .ibaCategory)
-        instructions = values._decodeDebug(String.self, forKey: .instructions)
+        instructions = try values.decode(String.self, forKey: .instructions)
         ingredients = []
 
-        let ingredient1 = values._decodeDebug(String.self, forKey: .ingredient1)
-        let ingredient2 = values._decodeDebug(String.self, forKey: .ingredient2)
-        let ingredient3 = values._decodeDebug(String.self, forKey: .ingredient3)
-        let ingredient4 = values._decodeDebug(String.self, forKey: .ingredient4)
-        let ingredient5 = values._decodeDebug(String.self, forKey: .ingredient5)
-        let ingredient6 = values._decodeDebug(String.self, forKey: .ingredient6)
-        let ingredient7 = values._decodeDebug(String.self, forKey: .ingredient7)
-        let ingredient8 = values._decodeDebug(String.self, forKey: .ingredient8)
-        let ingredient9 = values._decodeDebug(String.self, forKey: .ingredient9)
-        let ingredient10 = values._decodeDebug(String.self, forKey: .ingredient10)
-        let ingredient11 = values._decodeDebug(String.self, forKey: .ingredient11)
-        let ingredient12 = values._decodeDebug(String.self, forKey: .ingredient12)
-        let ingredient13 = values._decodeDebug(String.self, forKey: .ingredient13)
-        let ingredient14 = values._decodeDebug(String.self, forKey: .ingredient14)
-        let ingredient15 = values._decodeDebug(String.self, forKey: .ingredient15)
-        let measure1 = values._decodeDebug(String.self, forKey: .measure1)
-        let measure2 = values._decodeDebug(String.self, forKey: .measure2)
-        let measure3 = values._decodeDebug(String.self, forKey: .measure3)
-        let measure4 = values._decodeDebug(String.self, forKey: .measure4)
-        let measure5 = values._decodeDebug(String.self, forKey: .measure5)
-        let measure6 = values._decodeDebug(String.self, forKey: .measure6)
-        let measure7 = values._decodeDebug(String.self, forKey: .measure7)
-        let measure8 = values._decodeDebug(String.self, forKey: .measure8)
-        let measure9 = values._decodeDebug(String.self, forKey: .measure9)
-        let measure10 = values._decodeDebug(String.self, forKey: .measure10)
-        let measure11 = values._decodeDebug(String.self, forKey: .measure11)
-        let measure12 = values._decodeDebug(String.self, forKey: .measure12)
-        let measure13 = values._decodeDebug(String.self, forKey: .measure13)
-        let measure14 = values._decodeDebug(String.self, forKey: .measure14)
-        let measure15 = values._decodeDebug(String.self, forKey: .measure15)
+        let ingredient1 = try? values.decode(String.self, forKey: .ingredient1)
+        let ingredient2 = try? values.decode(String.self, forKey: .ingredient2)
+        let ingredient3 = try? values.decode(String.self, forKey: .ingredient3)
+        let ingredient4 = try? values.decode(String.self, forKey: .ingredient4)
+        let ingredient5 = try? values.decode(String.self, forKey: .ingredient5)
+        let ingredient6 = try? values.decode(String.self, forKey: .ingredient6)
+        let ingredient7 = try? values.decode(String.self, forKey: .ingredient7)
+        let ingredient8 = try? values.decode(String.self, forKey: .ingredient8)
+        let ingredient9 = try? values.decode(String.self, forKey: .ingredient9)
+        let ingredient10 = try? values.decode(String.self, forKey: .ingredient10)
+        let ingredient11 = try? values.decode(String.self, forKey: .ingredient11)
+        let ingredient12 = try? values.decode(String.self, forKey: .ingredient12)
+        let ingredient13 = try? values.decode(String.self, forKey: .ingredient13)
+        let ingredient14 = try? values.decode(String.self, forKey: .ingredient14)
+        let ingredient15 = try? values.decode(String.self, forKey: .ingredient15)
+        let measure1 = try? values.decode(String.self, forKey: .measure1)
+        let measure2 = try? values.decode(String.self, forKey: .measure2)
+        let measure3 = try? values.decode(String.self, forKey: .measure3)
+        let measure4 = try? values.decode(String.self, forKey: .measure4)
+        let measure5 = try? values.decode(String.self, forKey: .measure5)
+        let measure6 = try? values.decode(String.self, forKey: .measure6)
+        let measure7 = try? values.decode(String.self, forKey: .measure7)
+        let measure8 = try? values.decode(String.self, forKey: .measure8)
+        let measure9 = try? values.decode(String.self, forKey: .measure9)
+        let measure10 = try? values.decode(String.self, forKey: .measure10)
+        let measure11 = try? values.decode(String.self, forKey: .measure11)
+        let measure12 = try? values.decode(String.self, forKey: .measure12)
+        let measure13 = try? values.decode(String.self, forKey: .measure13)
+        let measure14 = try? values.decode(String.self, forKey: .measure14)
+        let measure15 = try? values.decode(String.self, forKey: .measure15)
 
-        ingredients.appendUnknownable(.init(name: ingredient1, measure: measure1))
-        ingredients.appendUnknownable(.init(name: ingredient2, measure: measure2))
-        ingredients.appendUnknownable(.init(name: ingredient3, measure: measure3))
-        ingredients.appendUnknownable(.init(name: ingredient4, measure: measure4))
-        ingredients.appendUnknownable(.init(name: ingredient5, measure: measure5))
-        ingredients.appendUnknownable(.init(name: ingredient6, measure: measure6))
-        ingredients.appendUnknownable(.init(name: ingredient7, measure: measure7))
-        ingredients.appendUnknownable(.init(name: ingredient8, measure: measure8))
-        ingredients.appendUnknownable(.init(name: ingredient9, measure: measure9))
-        ingredients.appendUnknownable(.init(name: ingredient10, measure: measure10))
-        ingredients.appendUnknownable(.init(name: ingredient11, measure: measure11))
-        ingredients.appendUnknownable(.init(name: ingredient12, measure: measure12))
-        ingredients.appendUnknownable(.init(name: ingredient13, measure: measure13))
-        ingredients.appendUnknownable(.init(name: ingredient14, measure: measure14))
-        ingredients.appendUnknownable(.init(name: ingredient15, measure: measure15))
+        ingredient1.map { ingredients.append(.init(name: $0, measure: measure1)) }
+        ingredient2.map { ingredients.append(.init(name: $0, measure: measure2)) }
+        ingredient3.map { ingredients.append(.init(name: $0, measure: measure3)) }
+        ingredient4.map { ingredients.append(.init(name: $0, measure: measure4)) }
+        ingredient5.map { ingredients.append(.init(name: $0, measure: measure5)) }
+        ingredient6.map { ingredients.append(.init(name: $0, measure: measure6)) }
+        ingredient7.map { ingredients.append(.init(name: $0, measure: measure7)) }
+        ingredient8.map { ingredients.append(.init(name: $0, measure: measure8)) }
+        ingredient9.map { ingredients.append(.init(name: $0, measure: measure9)) }
+        ingredient10.map { ingredients.append(.init(name: $0, measure: measure10)) }
+        ingredient11.map { ingredients.append(.init(name: $0, measure: measure11)) }
+        ingredient12.map { ingredients.append(.init(name: $0, measure: measure12)) }
+        ingredient13.map { ingredients.append(.init(name: $0, measure: measure13)) }
+        ingredient14.map { ingredients.append(.init(name: $0, measure: measure14)) }
+        ingredient15.map { ingredients.append(.init(name: $0, measure: measure15)) }
     }
 
     func encode(to encoder: Encoder) throws {
@@ -166,39 +166,59 @@ struct Drink: Codable, Hashable, Identifiable {
         case measure15 = "strMeasure15"
     }
 
-    enum Category: String, Codable, _Unknownable {
-        case cocktail = "Cocktail"
+    enum Category: String, Codable {
         case ordinaryDrink = "Ordinary Drink"
-        case punchPartyDrink = "Punch / Party Drink"
-        case shot = "Shot"
-        case beer = "Beer"
+        case cocktail = "Cocktail"
         case shake = "Shake"
         case other = "Other / Unknown"
+        case cocoa = "Cocoa"
+        case shot = "Shot"
+        case coffeTea = "Coffe / Tea"
         case homemadeLiqueur = "Homemade Liqueur"
-        case _unknown
+        case punchPartyDrink = "Punch / Party Drink"
+        case beer = "Beer"
+        case softDrink = "Soft Drink"
     }
 
-    enum Glass: String, Codable, _Unknownable {
-        case highballGlass = "Highball glass"
-        case oldFashionedGlass = "Old-fashioned glass"
-        case cocktailGlass = "Cocktail glass"
-        case copperMug = "Copper Mug"
-        case whiskeyGlass = "Whiskey Glass"
-        case beerGlass = "Beer Glass"
-        case beerMug = "Beer mug"
-        case whiteWineGlass = "White wine glass"
-        case shotGlass = "Shot glass"
-        case collinsGlass = "Collins glass"
+    enum Glass: String, Codable {
+        case highball = "Highball glass"
+        case cocktail = "Cocktail glass"
+        case oldFashioned = "Old-fashioned glass"
+        case whiskey = "Whiskey Glass"
+        case collins = "Collins glass"
+        case pousseCafe = "Pousse cafe glass"
+        case champagneFlute = "Champagne flute"
+        case whiskeySour = "Whiskey sour glass"
+        case cordial = "Cordial glass"
+        case brandySnifter = "Brandy snifter"
+        case whiteWine = "White wine glass"
+        case nickAndNora = "Nick and Nora Glass"
+        case hurricane = "Hurricane glass"
+        case coffeeMug = "Coffee mug"
+        case shot = "Shot glass"
+        case jar = "Jar"
         case irishCoffeeCup = "Irish coffee cup"
-        case martiniGlass = "Martini Glass"
+        case punchBowl = "Punch bowl"
+        case pitcher = "Pitcher"
+        case pint = "Pint glass"
+        case copperMug = "Copper Mug"
+        case wine = "Wine Glass"
+        case beerMug = "Beer mug"
         case margaritaGlass = "Margarita/Coupette glass"
-        case _unknown
+        case beerPilsner = "Beer pilsner"
+        case beerGlass = "Beer Glass"
+        case parfait = "Parfait glass"
+        case masonJar = "Mason jar"
+        case margarita = "Margarita glass"
+        case martiniGlass = "Martini Glass"
+        case baloon = "Baloon Glass"
+        case coupe = "Couple glass"
     }
 
-    enum AlcoholLevel: String, Codable, _Unknownable {
+    enum AlcoholLevel: String, Codable {
         case alcoholic = "Alcoholic"
-        case notAlcoholic = "Not alcoholic"
-        case _unknown
+        case nonAlcoholic = "Non alcoholic"
+        case optionalAlcohol = "Optional alcohol"
     }
 
     enum IBACategory: String, Codable, _Unknownable {
@@ -209,16 +229,12 @@ struct Drink: Codable, Hashable, Identifiable {
 }
 
 extension Drink {
-    struct Ingredient: Codable, Hashable, Identifiable, _Unknownable {
+    struct Ingredient: Codable, Hashable, Identifiable {
         let name: String
         let measure: String?
 
         var id: String {
             name
-        }
-
-        static var _unknown: Self {
-            .init(name: ._unknown, measure: ._unknown)
         }
     }
 }

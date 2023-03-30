@@ -1,4 +1,4 @@
-struct DrinkSummary: Codable, Identifiable {
+struct DrinkSummary: Codable, Identifiable, Equatable {
     let id: String
     let name: String
 

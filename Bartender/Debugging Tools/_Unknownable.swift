@@ -6,7 +6,7 @@ extension KeyedDecodingContainer {
             if case .dataCorrupted(let context) = (error as? DecodingError) {
                 print("DECODING:", context.debugDescription)
             } else {
-                print("DECODING: UNKNOWN", error)
+                print("DECODINGUNKNOWN:", error)
             }
             return ._unknown
         }
@@ -20,13 +20,5 @@ protocol _Unknownable: Equatable {
 extension String: _Unknownable {
     static var _unknown: String {
         "Unknown"
-    }
-}
-
-extension Array where Element: _Unknownable {
-    mutating func appendUnknownable(_ element: Element) {
-        if element != ._unknown {
-            append(element)
-        }
     }
 }

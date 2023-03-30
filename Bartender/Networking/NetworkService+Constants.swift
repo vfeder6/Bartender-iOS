@@ -1,23 +1,15 @@
 import Networking
 
-extension NetworkService {
-    private static var `protocol`: String {
-        "https"
-    }
-
-    private static var host: String {
-        "www.thecocktaildb.com"
-    }
-
-    private static var path: String {
-        "api/json/v2/\(apiKey)"
-    }
-
+extension NetworkClient {
     private static var apiKey: String {
-        "9973533"
+        "1"
     }
 
-    static var live: NetworkService {
-        .live(host: .init(string: "\(`protocol`)://\(host)/\(path)")!)
+    static var live: NetworkClient {
+        .live(baseURL: URLBuilder(
+            protocol: .https,
+            host: "www.thecocktaildb.com",
+            pathComponents: "api", "json", "v2", apiKey
+        ).build())
     }
 }
