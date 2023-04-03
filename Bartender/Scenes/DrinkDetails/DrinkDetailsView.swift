@@ -81,7 +81,7 @@ extension Drink.Ingredient {
 
 struct DrinkDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DrinkDetailsView(viewModel: .init(drinkDetailsService: .preview, drinkID: ""))
+        DrinkDetailsView(viewModel: .init(drinkDetailsService: .preview, drinkImageService: .preview, drinkID: ""))
             .dismissable(isPresented: .constant(true))
     }
 }
@@ -89,5 +89,11 @@ struct DrinkDetailsView_Previews: PreviewProvider {
 extension DrinkDetailsService {
     static var preview: Self {
         try! .init(networkClient: .mock(returning: .success(DrinkDetailsResponse.mock), expecting: 200, after: .seconds(0.5)))
+    }
+}
+
+extension DrinkImageService {
+    static var preview: Self {
+        try! .init(networkClient: .mock(returning: .success(.init("mojito")), expecting: 200))
     }
 }
