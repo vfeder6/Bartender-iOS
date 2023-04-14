@@ -74,7 +74,7 @@ struct DrinksListView_Previews: PreviewProvider {
 
 extension DrinksListService {
     static var preview: Self {
-        try! .init(networkClient: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
+        .init(networkClient: .mock(returning: .success(DrinksListResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }
 

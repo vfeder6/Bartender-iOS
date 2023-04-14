@@ -88,12 +88,12 @@ struct DrinkDetailsView_Previews: PreviewProvider {
 
 extension DrinkDetailsService {
     static var preview: Self {
-        try! .init(networkClient: .mock(returning: .success(DrinkDetailsResponse.mock), expecting: 200, after: .seconds(0.5)))
+        .init(networkClient: .mock(returning: .success(DrinkDetailsResponse.mock), expecting: 200, after: .seconds(0.5)))
     }
 }
 
 extension DrinkImageService {
     static var preview: Self {
-        try! .init(networkClient: .mock(returning: .success(.init("mojito")), expecting: 200))
+        .init(networkClient: .mock(returning: .success(.init("mojito")), expecting: 200))
     }
 }
