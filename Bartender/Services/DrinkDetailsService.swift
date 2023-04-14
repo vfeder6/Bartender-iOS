@@ -15,7 +15,7 @@ struct DrinkDetailsService: Microservice {
         )
         .flatMap { response in
             guard let drink = response.drinks.first else {
-                return .failure(.notDecodableData(model: type(of: response), json: nil))
+                return .failure(._unknown)
             }
             return .success(drink)
         }

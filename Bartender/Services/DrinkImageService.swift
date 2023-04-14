@@ -1,8 +1,8 @@
 import Networking
 import SwiftUI
 
-struct DrinkImageService: MediaService {
-    let networkClient: MediaNetworkClient<Image>
+struct DrinkImageService: Microservice {
+    let networkClient: NetworkClient<Image>
 
     func fetch(fileName: String) async -> Result<Image, NetworkError> {
         do {
